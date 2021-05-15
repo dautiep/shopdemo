@@ -1,0 +1,17 @@
+.background-primary .line .line-right .right .topbar-menu .topbar-menu-item {
+  position: relative;
+}
+.background-primary .line .line-right .right .topbar-menu .topbar-menu-item .number-cart {
+  font-size: 15px;
+  position: absolute;
+  background-color: #FF324D;
+  border-radius: 500px;
+  color: #1D2224;
+  width: 24px;
+  height: 20px;
+  top: 0px;
+  right: 0%;
+  padding-bottom: 26px;
+}
+
+/*# sourceMappingURL=common.css.map */

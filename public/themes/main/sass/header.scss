@@ -1,0 +1,24 @@
+.background-primary {
+    .line {
+        .line-right {
+            .right {
+                .topbar-menu {
+                    .topbar-menu-item {
+                        position: relative;
+                        .number-cart {
+                            font-size: 11px;
+                            position: absolute;
+                            background-color: #FF324D;
+                            border-radius: 20px;
+                            color: white;
+                            width: 21px;
+                            height: 21px;
+                            top: 0px;
+                            right: 0%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
