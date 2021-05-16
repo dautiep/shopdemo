@@ -1,4 +1,4 @@
-<!-- TESTIMONIALS START -->
+{{-- <!-- TESTIMONIALS START -->
 <div class="section background-dark">
 	<div class="line">
 		<!-- heading -->
@@ -42,4 +42,4 @@
 		<!-- slideshow end -->
 	</div>
 </div>
-<!-- TESTIMONIALS END -->
+<!-- TESTIMONIALS END --> --}}
