@@ -21,13 +21,13 @@
                     <!-- social icons -->
                     <div class="s-12 m-12 l-6">
                         <ul>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                            <li class="hide-s"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="{!! theme_option('link_instagram') !!}"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="{!! theme_option('link_FB') !!}"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="{!! theme_option('link_linkedin') !!}"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="{!! theme_option('link_twitter') !!}"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="{!! theme_option('link_gmail') !!}"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="{!! theme_option('link_youtobe') !!}"><i class="fa fa-youtube"></i></a></li>
+                            {{-- <li class="hide-s"><a href="#"><i class="fa fa-pinterest"></i></a></li> --}}
                         </ul>
                     </div>
                     <!-- contact details -->

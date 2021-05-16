@@ -1,8 +1,8 @@
 <!-- ABOUT US START -->
-<div class="section"> 
+<div class="section">
 	<div class="line">
 	  <!-- heading -->
-	  <h1 class="text-center">About Us</h1>
+	  <h1 class="text-center">{!! theme_option('name_about') !!}</h1>
 	  <hr class="break-small break-center">
 		<div class="margin">
 		    <!-- block 1 -->
@@ -11,9 +11,9 @@
 					<i class="fa fa-paper-plane-o fa-3x text-primary"></i>
 				</div>
 				<div class="margin-left-60">
-					<h3>Our vision</h3>
-					<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat iriure vulputate autem vel eum.</p> 
-					<a class="text-more-info text-primary-hover" href="/">Read more</a>                
+					<h3>{!! theme_option('name_title') !!}</h3>
+					<p>{!! theme_option('content_title') !!}</p>
+					<a class="text-more-info text-primary-hover" href="/">Read more</a>
 				</div>
 			</div>
 			<!-- block 2 -->
@@ -22,9 +22,9 @@
 					<i class="fa fa-eye fa-3x text-primary"></i>
 				</div>
 				<div class="margin-left-60">
-					<h3>Our mission</h3>
-					<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat iriure vulputate autem vel eum.</p> 
-					<a class="text-more-info text-primary-hover" href="/">Read more</a>                
+                    <h3>{!! theme_option('name_title_2') !!}</h3>
+					<p>{!! theme_option('content_title_2') !!}</p>
+                	<a class="text-more-info text-primary-hover" href="/">Read more</a>
 				</div>
 			</div>
 			<!-- block 3 -->
@@ -33,9 +33,9 @@
 					<i class="fa fa-diamond fa-3x text-primary"></i>
 				</div>
 				<div class="margin-left-60">
-					<h3>Behind the brand</h3>
-					<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat iriure vulputate autem vel eum.</p>
-					<a class="text-more-info text-primary-hover" href="/">Read more</a>                
+                    <h3>{!! theme_option('name_title_3') !!}</h3>
+					<p>{!! theme_option('content_title_3') !!}</p>
+                	<a class="text-more-info text-primary-hover" href="/">Read more</a>
 				</div>
 			</div>
 			<!-- block 4 -->
@@ -44,9 +44,9 @@
 					<i class="fa fa-calendar fa-3x text-primary"></i>
 				</div>
 				<div class="margin-left-60">
-					<h3>Our history begins</h3>
-					<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat iriure vulputate autem vel eum.</p>
-					<a class="text-more-info text-primary-hover" href="/">Read more</a>                
+                    <h3>{!! theme_option('name_title_4') !!}</h3>
+					<p>{!! theme_option('content_title_4') !!}</p>
+                    <a class="text-more-info text-primary-hover" href="/">Read more</a>
 				</div>
 			</div>
 			<!-- block 5 -->
@@ -55,9 +55,9 @@
 					<i class="fa fa-heart-o fa-3x text-primary"></i>
 				</div>
 				<div class="margin-left-60">
-					<h3>Our products</h3>
-					<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat iriure vulputate autem vel eum.</p>
-					<a class="text-more-info text-primary-hover" href="/">Read more</a>                
+                    <h3>{!! theme_option('name_title_5') !!}</h3>
+					<p>{!! theme_option('content_title_5') !!}</p>
+                    <a class="text-more-info text-primary-hover" href="/">Read more</a>
 				</div>
 			</div>
 			<!-- block 6 -->
@@ -66,9 +66,8 @@
 					<i class="fa fa-question-circle-o fa-3x text-primary"></i>
 				</div>
 				<div class="margin-left-60">
-					<h3>Why us?</h3>
-					<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat iriure vulputate autem vel eum.</p>
-					<a class="text-more-info text-primary-hover" href="/">Read more</a>                
+                    <h3>{!! theme_option('name_title_6') !!}</h3>
+					<p>{!! theme_option('content_title_6') !!}</p> <a class="text-more-info text-primary-hover" href="/">Read more</a>
 				</div>
 			</div>
 		</div>

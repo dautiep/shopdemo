@@ -3,43 +3,65 @@
 	<!-- slide 1 -->
 	<div class="item">
 	    <!-- slideshow photo -->
-		<div class="image-box">
-			<div class="image">
-				<img src="{{ Theme::asset()->url('img/slideshow/slide1.jpg') }}" alt="">
-			</div>
-		</div>
+        @if (has_field($page, 'banner'))
+            <div class="image-box">
+                <div class="image">
+                    <img src="{{RvMedia::getImageUrl(get_field($page, 'banner'), 'slides')  }}" alt="">
+                </div>
+            </div>
+        @endif
 		<!-- slideshow content -->
 		<div class="carousel-content">
 			<div class="content-center-vertical line">
 				<div class="s-12 m-8 l-7">
-					<h1 class="margin-bottom-10 animated-carousel-element">We Believe Makeup is Power Never DIM Your Light</h1>
-					<p class="margin-bottom-30 animated-carousel-element slow">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis eum iriure dolor in hendrerit in vulputate.</p>
+                    @if (has_field($page, 'slide_text'))
+                        @foreach ( get_field($page, 'slide_text') as $item )
+                            <h1 class="margin-bottom-10 animated-carousel-element">{{get_sub_field($item, 'text_top')}}</h1>
+                            <p class="margin-bottom-30 animated-carousel-element slow">{{get_sub_field($item, 'text_bottom')}}</p>
+                        @endforeach
+                    @endif
 					<div class="animated-carousel-element">
-						<a href="" class="slideshow-btn">Shop Now</a><a href="" class="slideshow-btn2">More Detail</a>
+                        @if (has_field($page, 'button'))
+                            @foreach ( get_field($page, 'button') as $item )
+                                <a href="" class="slideshow-btn">{{get_sub_field($item, 'button_1')}}</a>
+                                <a href="" class="slideshow-btn2">{{get_sub_field($item, 'button_2')}}</a>
+                            @endforeach
+                        @endif
 					</div>
-				</div>                 
+				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- slide 2 -->
-	<div class="item">
+    <div class="item">
 	    <!-- slideshow photo -->
-	    <div class="image-box">
-			<div class="image">
-				<img src="{{ Theme::asset()->url('img/slideshow/slide1.jpg') }}" alt="">
-			</div>
-		</div>
+        @if (has_field($page, 'banner_2'))
+            <div class="image-box">
+                <div class="image">
+                    <img src="{{RvMedia::getImageUrl(get_field($page, 'banner_2'), 'slides')  }}" alt="">
+                </div>
+            </div>
+        @endif
 		<!-- slideshow content -->
 		<div class="carousel-content">
 			<div class="content-center-vertical line">
 				<div class="s-12 m-8 l-7">
-					<h1 class="margin-bottom-10 animated-carousel-element">Invest in Your Skin its Represent You for a Long Time</h1>
-					<p class="margin-bottom-30 animated-carousel-element slow">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis eum iriure dolor in hendrerit in vulputate.</p>
+                    @if (has_field($page, 'slide_text_2'))
+                        @foreach ( get_field($page, 'slide_text_2') as $item )
+                            <h1 class="margin-bottom-10 animated-carousel-element">{{get_sub_field($item, 'text_top_2')}}</h1>
+                            <p class="margin-bottom-30 animated-carousel-element slow">{{get_sub_field($item, 'text_bottom_2')}}</p>
+                        @endforeach
+                    @endif
 					<div class="animated-carousel-element">
-						<a href="" class="slideshow-btn">Shop Now</a><a href="" class="slideshow-btn2">More Detail</a>
+                        @if (has_field($page, 'button_2'))
+                            @foreach ( get_field($page, 'button_2') as $item )
+                                <a href="" class="slideshow-btn">{{get_sub_field($item, 'button_one')}}</a>
+                                <a href="" class="slideshow-btn2">{{get_sub_field($item, 'button_two')}}</a>
+                            @endforeach
+                        @endif
 					</div>
-				</div>                 
+				</div>
 			</div>
 		</div>
 	</div>

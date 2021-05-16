@@ -45,9 +45,6 @@ return [
         'beforeRenderTheme' => function (Theme $theme) {
             $theme->asset()->add('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'); //fontawesome
             $theme->asset()->add('fontawesome2', 'https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css'); //fontawesome
-            // $theme->asset()->container('after_header')->add('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css'); //bootstrap
-            // $theme->asset()->container('after_header')->add('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css');
-
 
             $theme->asset()->container('after_header')->usePath()->add('myresponsee', 'templates/css/myresponsee.css');
             $theme->asset()->container('after_header')->usePath()->add('style1', 'templates/css/style.css');
