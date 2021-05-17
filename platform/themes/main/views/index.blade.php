@@ -2,5 +2,5 @@
 @includeIf('theme.main::partials.about-us')
 @includeIf('theme.main::partials.our-services')
 @includeIf('theme.main::partials.our-shop')
-@includeIf('theme.main::partials.testimonials')
+@includeIf('theme.main::partials.customer-feedback')
 @includeIf('theme.main::partials.blogs-and-follow')

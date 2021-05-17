@@ -1,0 +1,46 @@
+.text36 {
+  @include fontSize(36);
+
+  @include maxWidth(991) {
+    @include fontSize(30);
+  }
+}
+
+.text30 {
+  @include fontSize(30);
+
+  @include maxWidth(991) {
+    @include fontSize(25);
+  }
+}
+
+.text25 {
+  @include fontSize(25);
+
+  @include maxWidth(991) {
+    @include fontSize(20);
+  }
+}
+
+//header title 
+.text20 {
+  @include fontSize(20);
+
+  @include maxWidth(991) {
+    @include fontSize(15);
+  }
+}
+
+.text17 {
+  @include fontSize(17);
+}
+
+//title: medium:
+.text15 {
+  @include fontSize(15);
+}
+
+//nhỏ nhất regular:
+.text13 {
+  @include fontSize(13);
+}
