@@ -18,8 +18,7 @@
                                     <h4 class="">customer name here </h4>
                                 </div>
                             </div>
-                        @endforeach
-                    @endif
+                      
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
