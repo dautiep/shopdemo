@@ -26,6 +26,7 @@ class MainController extends PublicController
         $data['product']=Product::query()
         ->orWhere('is_featured','>',0)
         ->get();
+        
         // dd( $data['category']=ProductCategory::query()
         // ->get());
         return Theme::scope('index',$data)->render();
