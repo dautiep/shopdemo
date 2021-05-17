@@ -11,7 +11,7 @@
             </div>
         @endif
 		<!-- slideshow content -->
-		<div class="carousel-content">
+		{{-- <div class="carousel-content">
 			<div class="content-center-vertical line">
 				<div class="s-12 m-8 l-7">
                     @if (has_field($page, 'slide_text'))
@@ -30,7 +30,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 	</div>
 
 	<!-- slide 2 -->
@@ -44,7 +44,7 @@
             </div>
         @endif
 		<!-- slideshow content -->
-		<div class="carousel-content">
+		{{-- <div class="carousel-content">
 			<div class="content-center-vertical line">
 				<div class="s-12 m-8 l-7">
                     @if (has_field($page, 'slide_text_2'))
@@ -63,7 +63,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 	</div>
 </div>
 <!-- SLIDESHOW END -->
