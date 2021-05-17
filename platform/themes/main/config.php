@@ -52,7 +52,8 @@ return [
             $theme->asset()->container('after_header')->usePath()->add('carousel', 'templates/css/owl-carousel/owl.carousel.css');
             $theme->asset()->container('after_header')->usePath()->add('theme', 'templates/css/owl-carousel/owl.theme.css');
             $theme->asset()->container('after_header')->usePath()->add('responsive', 'templates/css/responsive.css');
-
+            $theme->asset()->add('swiper_css', 'https://unpkg.com/swiper/swiper-bundle.min.css'); //swiper
+            $theme->asset()->add('swiper_codebean', 'https://use.fontawesome.com/releases/v5.5.0/css/all.css'); //swiper
             $theme->asset()->container('after_header')->usePath()->add('fonts', 'templates/css/fonts.css');
             // $theme->asset()->container('after_header')->usePath()->add('hover', 'templates/css/hover.css');
             // $theme->asset()->container('after_header')->usePath()->add('imagehover', 'templates/css/imagehover.css');
@@ -71,6 +72,7 @@ return [
             $theme->asset()->container('footer')->usePath()->add('jQuery.scrollSpeed', 'templates/js/jQuery.scrollSpeed.js'); //js
             $theme->asset()->container('footer')->usePath()->add('modernizr', 'templates/js/modernizr.js'); //js
             $theme->asset()->container('footer')->usePath()->add('respond', 'templates/js/respond.js'); //js
+            $theme->asset()->container('footer')->add('swiper_js', 'https://unpkg.com/swiper/swiper-bundle.min.js');
             $theme->asset()->container('footer')->usePath()->add('responsee', 'templates/js/responsee.js'); //js
 
             // <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
@@ -79,7 +81,7 @@ return [
             // <script type="text/javascript" src="js/custom.js"></script>
             // $theme->asset()->container('footer')->add('jqueryboostrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js');
             // $theme->asset()->container('footer')->add('aos.js', 'https://unpkg.com/aos@next/dist/aos.js');
-            // $theme->asset()->container('footer')->usePath()->add('common', 'js/common.js'); //js
+            $theme->asset()->container('footer')->usePath()->add('common', 'js/common.js'); //js
 
             if (function_exists('shortcode')) {
                 $theme->composer(['index', 'page', 'post'], function (\Platform\Shortcode\View\View $view) {

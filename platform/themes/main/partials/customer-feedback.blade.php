@@ -1,4 +1,4 @@
-<div class="customerfeedback">
+<div class="customerfeedback ">
     <div class="container">
         <div class="customerfeedback__content">
             <div class="customerfeedback__content-title">
@@ -14,8 +14,8 @@
                    
                             <div class="swiper-slide">
                                 <div class="customer-feedback__item">
-                                    <img src=""  alt="img-here" />
-                                    <h4 class="">customer name here </h4>
+                                    <img src="{{ Theme::asset()->url('img/products/3.png') }}"  alt="img-here" />
+                                    <h4 class="name-person"> customer name here </h4>
                                 </div>
                             </div>
                       
@@ -28,9 +28,9 @@
                    content img
                 </div>
                 <img class="customerfeedback__content-footer--iconright"
-                    src="" alt="img-here right">
+                    src="{{ Theme::asset()->url('img/products/1.png') }}" alt="img-here right">
                 <img class="customerfeedback__content-footer--iconleft "
-                    src="" alt="img-here left   ">
+                    src="{{ Theme::asset()->url('img/products/2.png') }}" alt="img-here left   ">
             </div>
         </div>
     </div>

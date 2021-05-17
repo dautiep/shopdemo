@@ -307,6 +307,30 @@ theme_option()
                     ],
                 ],
             ],
+            [
+                'id' => 'gmail',
+                'type' => 'text',
+                'label' => __('Nhập Gmail'),
+                'attributes' => [
+                    'name' => 'gmail',
+                    'value' => null,
+                    'options' => [
+                        'class' => 'form-control',
+                    ],
+                ],
+            ],
+            [
+                'id' => 'phone_number',
+                'type' => 'text',
+                'label' => __('Nhập Số Điện Thoại'),
+                'attributes' => [
+                    'name' => 'phone_number',
+                    'value' => null,
+                    'options' => [
+                        'class' => 'form-control',
+                    ],
+                ],
+            ],
         ],
     ])
     ;
