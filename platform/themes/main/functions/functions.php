@@ -9,7 +9,9 @@ register_sidebar([
     'name'        => 'Second sidebar',
     'description' => 'This is a sample sidebar for main theme',
 ]);
-
+add_shortcode('Contact-form', 'Contact Form', 'Contact form my custom', function ($shortCode) {
+    return Theme::partial('short-codes.contact-form');
+});
 theme_option()
     ->setField([
         'id'         => 'copyright',

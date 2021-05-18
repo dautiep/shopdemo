@@ -5,7 +5,7 @@
 Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'web'], function () {
     Route::group(apply_filters(BASE_FILTER_GROUP_PUBLIC_ROUTE, []), function () {
         //Get About US:
-        Route::get('/about-us', 'MainController@getAbout')
+        Route::get('/ve-chung-toi', 'MainController@getAbout')
             ->name('public.about-us');
         //Get Blog:
         Route::get('/blog', 'MainController@getBlog')
@@ -17,7 +17,7 @@ Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'web
         Route::get('/cart', 'MainController@getCart')
             ->name('public.get-cart');
         //Get Contact:
-        Route::get('/contact', 'MainController@getContact')
+        Route::get('/lien-he', 'MainController@getContact')
             ->name('public.get-contact');
         //Get Product:
         Route::get('/product', 'MainController@getProduct')

@@ -26,7 +26,7 @@ class MainController extends PublicController
         $data['product']=Product::query()
         ->orWhere('is_featured','>',0)
         ->get();
-        
+
         // dd( $data['category']=ProductCategory::query()
         // ->get());
         return Theme::scope('index',$data)->render();
@@ -73,6 +73,7 @@ class MainController extends PublicController
     //Get Contact:
     public function getContact(BaseHttpResponse $response)
     {
+        
         return Theme::scope('pages.contact-us')->render();
     }
     //Get product:
