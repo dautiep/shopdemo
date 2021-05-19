@@ -163,4 +163,16 @@ class CategoryRepository extends RepositoriesAbstract implements CategoryInterfa
 
         return $this->applyBeforeExecuteQuery($data)->get();
     }
+        /**
+     * {@inheritDoc}
+     */
+    public function getCategoryByPostId(int $postId)
+    {
+        $data = $this->model
+                ->join('post_categories', 'post_categories.category_id', '=', 'categories.id')
+                ->where('post_categories.post_id', $postId)
+                ->select('post_categories.*')
+                ->with('slugable');
+        return $this->applyBeforeExecuteQuery($data)->first();
+    }
 }

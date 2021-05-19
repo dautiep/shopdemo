@@ -2,7 +2,7 @@
 <div class="section background-white">
     <div class="line">
         <div class="margin">
-
+          
             <!-- left side start -->
             <div class="s-12 m-12 l-9 padding-l-right-30">
 
@@ -12,8 +12,8 @@
                     <!-- title & image -->
                     <div class="line">
                         <div class="fullwidth">
-                            <h1 class="margin-bottom-30">LOREM ETIAM PULVINAR LACUS MAGNA ULTRICIES ERAT CONSEQUAT</h1>
-                            <img src="img/blog/large.jpg" alt="" class="fullwidth">
+                            <h1 class="margin-bottom-30">{{ $contentPost->name }}</h1>
+                            <img src="{{ RvMedia::getImageUrl($contentPost->image, 'midle', false, RvMedia::getDefaultImage()) }}" alt="" class="fullwidth">
                         </div>
                     </div>
 
@@ -21,31 +21,10 @@
                     <div class="line">
                         <div class="fullwidth border-bottom">
                             <div class="post">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sodales, mi id cursus
-                                    sagittis, ligula risus porta ante, eget facilisis arcu dolor quis erat. Quisque
-                                    vitae lacinia felis, viverra interdum tellus. Aenean vestibulum efficitur elit,
-                                    lobortis pretium libero. Suspendisse varius sed massa nec finibus. Cras euismod
-                                    tortor turpis, in laoreet magna volutpat at. Nam varius, mauris pretium consequat
-                                    elementum, elit dolor convallis lacus, ut pretium sem ligula quis lectus. Cum sociis
-                                    natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean
-                                    vitae ullamcorper nunc. Etiam pulvinar lacus magna, ac ultricies erat consequat in.
-                                    Aenean nec libero non sapien pulvinar bibendum. Morbi quis consectetur massa, vel
-                                    imperdiet lacus. Nunc sit amet lacinia magna, eget volutpat mauris. Vivamus tempus,
-                                    elit eu fermentum sodales, tellus libero pulvinar libero, vel posuere ex enim quis
-                                    felis. Nunc luctus consequat velit, nec lacinia enim blandit at. Integer maximus
-                                    enim quis nulla aliquam rhoncus. Quisque ut scelerisque justo. Integer iaculis
-                                    bibendum purus, vel pulvinar ante interdum nec. Integer mattis sem non orci gravida,
-                                    non imperdiet mauris dignissim. Donec ac semper diam, a ornare lorem. Mauris ac
-                                    blandit est. Fusce dapibus eros elit, aliquam elementum augue molestie at. Quisque
-                                    fringilla congue dictum. Aliquam malesuada eros vel eleifend eleifend pellentesque.
+                                <p>
+                                    {{ $contentPost->description }}
                                 </p>
-                                <p>Pellentesque semper felis sed lobortis vestibulum. Morbi lacinia eu ligula vitae
-                                    scelerisque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam
-                                    nec accumsan dolor, in condimentum est. Integer vel est sem. Nunc imperdiet nibh sit
-                                    amet mollis venenatis. In id ligula eget dui condimentum consectetur. Maecenas
-                                    egestas lobortis libero in mattis. Phasellus suscipit tincidunt sapien nec blandit.
-                                    Sed mattis faucibus libero, pulvinar dictum libero lacinia facilisis. Mauris vitae
-                                    cursus neque. Suspendisse non feugiat ante.</p>
+                                {!! $contentPost->content !!}
                             </div>
                         </div>
                     </div>

@@ -5,14 +5,16 @@ namespace Theme\Main\Http\Controllers;
 use Illuminate\Http\Request;
 use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Blog\Models\Post;
+use Platform\Blog\Repositories\Interfaces\PostInterface;
 use Platform\Ecommerce\Models\Product;
 use Platform\Ecommerce\Models\ProductCategory;
 use Platform\Page\Repositories\Interfaces\PageInterface;
 use Platform\Slug\Repositories\Interfaces\SlugInterface;
 use Platform\Theme\Http\Controllers\PublicController;
 use Platform\Page\Models\Page;
+use SlugHelper;
 use Theme;
-
 class MainController extends PublicController
 {
     /**
@@ -26,9 +28,10 @@ class MainController extends PublicController
         $data['product']=Product::query()
         ->orWhere('is_featured','>',0)
         ->get();
-
-        // dd( $data['category']=ProductCategory::query()
-        // ->get());
+        
+        //lấy ra 2 bài viết mới nhất thuộc tin tức
+         $data['newPosts'] = get_posts_by_category(5); 
+   
         return Theme::scope('index',$data)->render();
     }
 
@@ -60,11 +63,7 @@ class MainController extends PublicController
     {
         return Theme::scope('pages.blog')->render();
     }
-    //Get Blog_Post:
-    public function getBlogPost(BaseHttpResponse $response)
-    {
-        return Theme::scope('pages.blog-post')->render();
-    }
+
     //Get Cart:
     public function getCart(BaseHttpResponse $response)
     {
@@ -77,13 +76,26 @@ class MainController extends PublicController
         return Theme::scope('pages.contact-us')->render();
     }
     //Get product:
-    public function getProduct(BaseHttpResponse $response)
+    public function getProduct($slug, SlugInterface $slugRepository, Request $request)
     {
+
         return Theme::scope('pages.product')->render();
     }
     //Get product-detail:
     public function getProductDetail(BaseHttpResponse $response)
     {
         return Theme::scope('pages.product-detail')->render();
+    }
+     /**
+     * @return \Illuminate\Http\Response|Response
+     */
+    public function getBlogDetail($slug, $slugPost, PostInterface $postRepository, SlugInterface $slugRepository)
+    {
+        if (!$slugPost) { 
+            abort('404');
+        }
+        $slugPost = $slugRepository->getFirstBy(['key' => $slugPost, 'reference_type' => Post::class]);
+        $data['contentPost'] = $postRepository->getFirstBy(['id' => $slugPost->reference_id]);
+        return Theme::scope('pages.blog-post', $data)->render();
     }
 }

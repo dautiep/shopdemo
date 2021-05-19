@@ -2,18 +2,22 @@
 <div class="section">
 	<div class="line">
 		<div class="margin">
-			<!-- tutorial -->
-			<div class="s-12 m-12 l-4 margin-m-bottom-60">
-				<div class="fullwidth margin-bottom">
-					<a href="" class="image-hover-zoom">
-					    <img src="{{ Theme::asset()->url('img/tutorial.jpg') }}" alt="">
-					</a>
+			<!-- tutorial -->   
+			@foreach ($newPosts as $k => $post)
+                @if ($k < 2)
+				<div class="s-12 m-12 l-4 margin-m-bottom-60">
+					<div class="fullwidth margin-bottom">
+						<a href="{{ route('blog.detail', [get_category_post_by_id(get_category_by_post_id($post->id)->category_id)->slug, $post->slug]) }}" class="image-hover-zoom">
+							<img src="{{ RvMedia::getImageUrl($post->image, 'new_post', false, RvMedia::getDefaultImage()) }}" alt="">
+						</a>
+					</div>
+					<div class="fullwidth">
+						<h3>{{ $post->name }}</h3>
+						<p>{{ $post->description }}</p>
+					</div>
 				</div>
-				<div class="fullwidth">
-					<h3>Lovely tutorial</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempus quis eros ut aliquam.</p>
-			    </div>
-			</div>
+				@endif
+            @endforeach
 
 			<!-- follow us -->
 			<div class="s-12 m-12 l-4 margin-m-bottom-60">
@@ -55,7 +59,7 @@
 			    </div>
 			</div>
 
-			<!-- blog post -->
+			{{-- <!-- blog post -->
 			<div class="s-12 m-12 l-4">
 				<div class="fullwidth margin-bottom">
 				    <a href="" class="image-hover-zoom">
@@ -66,7 +70,7 @@
 					<h3>Read our blog</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempus quis eros ut aliquam.</p>
 			    </div>
-			</div>
+			</div> --}}
 		</div>
 	</div>
 </div>

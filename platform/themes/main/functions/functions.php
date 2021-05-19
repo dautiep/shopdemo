@@ -12,6 +12,8 @@ register_sidebar([
 add_shortcode('Contact-form', 'Contact Form', 'Contact form my custom', function ($shortCode) {
     return Theme::partial('short-codes.contact-form');
 });
+RvMedia::addSize('new_post', 360, 225)
+->addSize('midle',550,255);
 theme_option()
     ->setField([
         'id'         => 'copyright',

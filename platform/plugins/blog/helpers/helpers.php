@@ -255,3 +255,25 @@ if (!function_exists('get_post_formats')) {
         return PostFormat::getPostFormats($convertToList);
     }
 }
+if (!function_exists('get_category_by_post_id')) {
+    /**
+     * @param int $postId
+     * @return array
+     */
+    function get_category_by_post_id($postId)
+    {
+        return app(CategoryInterface::class)->getCategoryByPostId($postId);
+    }
+}
+
+if (!function_exists('get_category_post_by_id')) {
+    /**
+     * @param int $id
+     * @return mixed
+     */
+    function get_category_post_by_id($id)
+    {
+        return app(CategoryInterface::class)->getCategoryById($id);
+    }
+}
+
