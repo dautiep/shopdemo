@@ -13,7 +13,9 @@ add_shortcode('Contact-form', 'Contact Form', 'Contact form my custom', function
     return Theme::partial('short-codes.contact-form');
 });
 RvMedia::addSize('new_post', 360, 225)
-->addSize('midle',550,255);
+->addSize('midle',550,255)
+->addSize('product',370,370)
+;
 theme_option()
     ->setField([
         'id'         => 'copyright',

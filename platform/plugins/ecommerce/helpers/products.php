@@ -418,3 +418,27 @@ if (!function_exists('get_product_attributes_with_set')) {
         return $attributes;
     }
 }
+if (!function_exists('get_products_by_category')) {
+    /**
+     * Get list product by ategory
+     * @param init $productId
+     * @param int $paginate
+     * @return array
+     */
+    function get_products_by_category($categoryId, $paginate) 
+    {
+        return app(ProductInterface::class)->getproductsByCategory($categoryId, $paginate);
+    }
+}
+
+if (!function_exists('get_category_by_product')) {
+    /**
+     * Get category by product
+     * @param int $product_id
+     * @return array
+     */
+    function get_category_by_product($product_id)
+    {
+        return app(ProductInterface::class)->getCategoryByProduct($product_id);
+    }
+}

@@ -23,13 +23,13 @@ Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'web
         Route::get('/lien-he', 'MainController@getContact')
             ->name('public.get-contact');
         
-            Route::prefix('san-pham')->group(function() {
-             Route::get('{slug}', 'MainController@getProduct')->name('product.category');
+        Route::prefix('san-pham')->group(function() {
+             Route::get('/', 'MainController@getProduct')->name('product.category');
              Route::get('{slug}/{slugPost}', 'MainController@getproductdetail')->name('product.detail');
         });
-            //Get Product Detail:
-        //     //Get Product:
-        //     Route::get('/product', 'MainController@getProduct')
+        // Get Product Detail:
+            //Get Product:
+        // Route::get('/san-pham', 'MainController@getProduct')
         //         ->name('public.get-product');
         // Route::get('/product-detail', 'MainController@getProductDetail')
         //     ->name('public.get-product-detail');

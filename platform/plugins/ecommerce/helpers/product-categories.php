@@ -79,3 +79,24 @@ if (!function_exists('get_product_categories_with_children')) {
         return $sortHelper->sort();
     }
 }
+if (!function_exists('get_category_product_by_id')) {
+    /**
+     * @param integer $id
+     * @return array
+     */
+    function get_category_product_by_id($id)
+    {
+        return app(ProductCategoryInterface::class)->getCategoryProductById($id);
+    }
+}
+
+if (!function_exists('get_category_by_id')) {
+    /** 
+     * @param integer $id
+     * @return array
+     */
+    function get_category_by_id($id)
+    {
+        return app(ProductCategoryInterface::class)->getCategoryById($id);
+    }
+}

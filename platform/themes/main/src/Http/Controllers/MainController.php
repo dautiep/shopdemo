@@ -76,14 +76,20 @@ class MainController extends PublicController
         return Theme::scope('pages.contact-us')->render();
     }
     //Get product:
-    public function getProduct($slug, SlugInterface $slugRepository, Request $request)
+    public function getProduct( Request $request)
     {
-
-        return Theme::scope('pages.product')->render();
+       
+        $data['product']=Product::query()
+        ->get();
+    
+       
+        return Theme::scope('pages.product',$data)->render();
     }
     //Get product-detail:
-    public function getProductDetail(BaseHttpResponse $response)
+    public function getProductDetail($slug,$slugPost, ProductInterface $productRepository, SlugInterface $slugRepository)
     {
+        
+     
         return Theme::scope('pages.product-detail')->render();
     }
      /**
