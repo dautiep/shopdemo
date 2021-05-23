@@ -916,4 +916,72 @@ class ProductRepository extends RepositoriesAbstract implements ProductInterface
 
         return $this->advancedGet($params);
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getProductFeatured(int $limit = 5, array $with = [])
+    {
+        $data = $this->model
+            ->where([
+                'ec_products.status'      => BaseStatusEnum::PUBLISHED,
+                'ec_products.is_featured' => 1,
+            ])
+            ->limit($limit)
+            ->with(array_merge(['slugable'], $with))
+            ->orderBy('ec_products.created_at', 'desc');
+
+        return $this->applyBeforeExecuteQuery($data)->get();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCategoryByProduct($productId)
+    {
+        $data = $this->model
+                ->join('ec_product_category_product', 'ec_product_category_product.product_id', '=', 'ec_products.id')
+                ->where('ec_product_category_product.product_id', $productId)
+                ->select('ec_product_category_product.*')
+                ->with('slugable');
+        return $this->applyBeforeExecuteQuery($data)->first();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getProductByBranch($brandId)
+    {
+        $data = $this->model
+                ->where('brand_id', $brandId)
+                ->select('ec_products. *')
+                ->with('slugable');
+        return $this->applyBeforeExecuteQuery($data)->get();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getProductsByCategory($categoryId, $paginate, $limit = 8)
+    {
+        if (!is_array($categoryId)) {
+            $categoryId = [$categoryId];
+        }
+
+        $data = $this->model
+            ->where('ec_products.status', BaseStatusEnum::PUBLISHED)
+            ->join('ec_product_category_product', 'ec_product_category_product.product_id', '=', 'ec_products.id')
+            ->join('ec_product_categories', 'ec_product_category_product.category_id', '=', 'ec_product_categories.id')
+            ->whereIn('ec_product_category_product.category_id', $categoryId)
+            ->select('ec_products.*')
+            ->distinct()
+            ->with('slugable')
+            ->orderBy('ec_products.created_at', 'desc');
+
+        if ($paginate != 0) {
+            return $this->applyBeforeExecuteQuery($data)->paginate($paginate);
+        }
+
+        return $this->applyBeforeExecuteQuery($data)->limit($limit)->get();
+    }
 }

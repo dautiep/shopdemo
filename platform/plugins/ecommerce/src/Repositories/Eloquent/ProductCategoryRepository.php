@@ -96,4 +96,14 @@ class ProductCategoryRepository extends RepositoriesAbstract implements ProductC
 
         return $this->applyBeforeExecuteQuery($data)->get();
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCategoryProductById($categoryId)
+    {
+        $data = $this->model->where('id', $categoryId);
+        return $this->applyBeforeExecuteQuery($data)->first();
+    }
+
 }

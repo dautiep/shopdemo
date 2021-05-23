@@ -54,7 +54,7 @@
   -webkit-box-sizing:border-box;
   -moz-box-sizing:border-box;
   box-sizing:border-box;
-  margin:0;	
+  margin:0;
 }
 
 /* ------------------------------- */
@@ -76,20 +76,18 @@ h4,
 h5,
 h6 {
   color:#1d191a;
-  font-weight:normal;
   margin:0 0 6px 0;
-  font-family: 'Raleway-Bold';
   text-transform:capitalize;
 }
 h1 {
-  font-size:2.5em;
+  font-size:40px;
   text-transform:uppercase;
   line-height: 1.2em;
 }
 h2 {
   font-size:2.2em;
   line-height: 1.3em;
-} 
+}
 h3 {
   font-size:1.2em;
   line-height: 1.5em;
@@ -104,7 +102,6 @@ h5 {
   font-size:1.2em;
   line-height: 1.5em;
   text-align:center;
-  font-family: 'Raleway-Medium';
 }
 h6 {
   font-size:1.6em;
@@ -178,7 +175,7 @@ img {
 /* ------------------------------- */
 /*      04 Layout Helpers          */
 /* ------------------------------- */
-.section  { 
+.section  {
   padding: 6.5rem 1.25rem;
 }
 .text-center {
@@ -451,7 +448,7 @@ a.edit-item:hover:after {
 /* ------------------------------- */
 /*            Borders              */
 /* ------------------------------- */
-.border-radius  { 
+.border-radius  {
   border-radius: 3px;
 }
 .border-1 {
@@ -728,7 +725,7 @@ nav {
   cursor:pointer;
 }
 .top-nav li a {
-  color:#fff; 
+  color:#fff;
   display:block;
   padding: 2.3em 1.45em;
   font-size:15px;
@@ -768,7 +765,7 @@ ul.chevron .submenu > a:after, ul.chevron .sub-submenu > a:after,ul.chevron .asi
 }
 .top-nav .active-item a {
   color:#cf9963;
-} 
+}
 .top-nav li ul li:last-child {
   border-bottom: 0;
 }
@@ -1002,7 +999,7 @@ ul.chevron .submenu > a::after, ul.chevron .sub-submenu > a::after, ul.chevron .
   padding: 0;
   position: absolute;
   text-align: center;
-  top: 45%;    
+  top: 45%;
   width: 70px;
 }
 .carousel-bottom-arrows.owl-theme .owl-controls .owl-buttons div {
@@ -1010,7 +1007,7 @@ ul.chevron .submenu > a::after, ul.chevron .sub-submenu > a::after, ul.chevron .
   top: auto;
 }
 .owl-theme .owl-controls .owl-buttons .owl-prev {
-  left: 0;    
+  left: 0;
 }
 .owl-theme .owl-controls .owl-buttons .owl-next {
   right: 0;
@@ -1067,7 +1064,7 @@ display:none;
 .owl-item .image-testimonial-small {
   margin: 0 auto 20px;
   width: auto;
-} 
+}
 /* animated carousel content */
 .animated-carousel-element {
   position: relative;
@@ -1117,7 +1114,7 @@ display:none;
 /* ------------------------------- */
 /*             07 Forms            */
 /* ------------------------------- */
-/* custom form */ 
+/* custom form */
 .customform input, .customform textarea, .customform select .customform button {
   margin-bottom:50px;
   color:#1d191a;
@@ -1245,7 +1242,7 @@ footer .footer-form :-moz-placeholder { /* Firefox 4 - 18 */
 }
 /* recent posts */
 #recent-posts {
-  margin:40px 0;	
+  margin:40px 0;
 }
 #recent-posts .post {
   border-bottom:solid 1px #c9bec1;
@@ -1260,7 +1257,7 @@ footer .footer-form :-moz-placeholder { /* Firefox 4 - 18 */
 }
 /* categories */
 #blog-categories {
-  margin:40px 0;	
+  margin:40px 0;
 }
 #blog-categories .cat {
   border-bottom:solid 1px #c9bec1;
@@ -1271,7 +1268,7 @@ footer .footer-form :-moz-placeholder { /* Firefox 4 - 18 */
 }
 /* tags */
 #recent-tags {
-  margin:40px 0;	
+  margin:40px 0;
 }
 #recent-tags .tag {
   background:#fff;
@@ -1403,14 +1400,14 @@ footer .footer-form :-moz-placeholder { /* Firefox 4 - 18 */
 /* ------------------------------- */
 /*           10 Follow Us          */
 /* ------------------------------- */
-.follow-facebook { 
+.follow-facebook {
   width:100%;
   margin:auto 0;
   text-align:center;
   height:113px;
   line-height:113px;
   font-size:2.5em;
-  display:block; 
+  display:block;
   background:#1d191a;
   color:#fff;
   border-left:solid 1px #292526;
@@ -1423,20 +1420,20 @@ footer .footer-form :-moz-placeholder { /* Firefox 4 - 18 */
   height:113px;
   line-height:113px;
   font-size:2.5em;
-  display:block; 
+  display:block;
   background:#1d191a;
   color:#fff;
   border-left:solid 1px #292526;
   border-top:solid 1px #292526;
 }
-.follow-pinterest { 
+.follow-pinterest {
   width:100%;
   margin:auto 0;
   text-align:center;
   height:113px;
   line-height:113px;
   font-size:2.5em;
-  display:block; 
+  display:block;
   background:#1d191a;
   color:#fff;
   border-top:solid 1px #292526;
@@ -1450,7 +1447,7 @@ footer .footer-form :-moz-placeholder { /* Firefox 4 - 18 */
   height:113px;
   line-height:113px;
   font-size:2.5em;
-  display:block; 
+  display:block;
   background:#1d191a;
   color:#fff;
   border-left:solid 1px #292526;
@@ -1464,7 +1461,7 @@ footer .footer-form :-moz-placeholder { /* Firefox 4 - 18 */
   height:113px;
   line-height:113px;
   font-size:2.5em;
-  display:block; 
+  display:block;
   background:#1d191a;
   color:#fff;
   border-left:solid 1px #292526;
@@ -1478,7 +1475,7 @@ footer .footer-form :-moz-placeholder { /* Firefox 4 - 18 */
   height:113px;
   line-height:113px;
   font-size:2.5em;
-  display:block; 
+  display:block;
   background:#1d191a;
   color:#fff;
   border:solid 1px #292526;

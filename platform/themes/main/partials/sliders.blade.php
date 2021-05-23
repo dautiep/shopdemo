@@ -6,7 +6,7 @@
         @if (has_field($page, 'banner'))
             <div class="image-box">
                 <div class="image">
-                    <img src="{{RvMedia::getImageUrl(get_field($page, 'banner'), 'slides')  }}" alt="">
+                    <img class="img-slider" src="{{RvMedia::getImageUrl(get_field($page, 'banner'), 'slides')  }}" alt="">
                 </div>
             </div>
         @endif
@@ -39,7 +39,7 @@
         @if (has_field($page, 'banner_2'))
             <div class="image-box">
                 <div class="image">
-                    <img src="{{RvMedia::getImageUrl(get_field($page, 'banner_2'), 'slides')  }}" alt="">
+                    <img class="img-slider" src="{{RvMedia::getImageUrl(get_field($page, 'banner_2'), 'slides')  }}" alt="">
                 </div>
             </div>
         @endif

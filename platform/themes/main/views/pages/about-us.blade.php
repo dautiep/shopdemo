@@ -9,61 +9,19 @@
 			    <div class="fullwidth margin-bottom-60">
 				  <p>{!! theme_option('content_about') !!}</p>
 				</div>
-				<div class="fullwidth margin-bottom-60">
-					<div class="float-left">
-						<i class="fa fa-paper-plane-o fa-3x text-primary"></i>
-					</div>
-					<div class="margin-left-70">
-                        <h3>{!! theme_option('name_title') !!}</h3>
-                        <p>{!! theme_option('content_title') !!}</p>
-                        <!--<a class="text-more-info text-primary-hover" href="/">Read more</a>-->
-					</div>
-				</div>
-				<div class="fullwidth margin-bottom-60">
-					<div class="float-left">
-						<i class="fa fa-eye fa-3x text-primary"></i>
-					</div>
-					<div class="margin-left-70">
-                        <h3>{!! theme_option('name_title_2') !!}</h3>
-                        <p>{!! theme_option('content_title_2') !!}</p>	<!--<a class="text-more-info text-primary-hover" href="/">Read more</a>-->
-					</div>
-				</div>
-				<div class="fullwidth margin-bottom-60">
-					<div class="float-left">
-						<i class="fa fa-diamond fa-3x text-primary"></i>
-					</div>
-					<div class="margin-left-70">
-						<h3>{!! theme_option('name_title_3') !!}</h3>
-					    <p>{!! theme_option('content_title_3') !!}</p><!--<a class="text-more-info text-primary-hover" href="/">Read more</a>-->
-					</div>
-				</div>
-				<div class="fullwidth margin-bottom-60">
-					<div class="float-left">
-						<i class="fa fa-calendar fa-3x text-primary"></i>
-					</div>
-					<div class="margin-left-70">
-						<h3>{!! theme_option('name_title_4') !!}</h3>
-					    <p>{!! theme_option('content_title_4') !!}</p><!--<a class="text-more-info text-primary-hover" href="/">Read more</a>-->
-					</div>
-				</div>
-				<div class="fullwidth margin-bottom-60">
-					<div class="float-left">
-						<i class="fa fa-heart-o fa-3x text-primary"></i>
-					</div>
-					<div class="margin-left-70">
-						<h3>{!! theme_option('name_title_5') !!}</h3>
-					    <p>{!! theme_option('content_title_5') !!}</p><!--<a class="text-more-info text-primary-hover" href="/">Read more</a>-->
-					</div>
-				</div>
-				<div class="fullwidth margin-m-bottom-60">
-					<div class="float-left">
-						<i class="fa fa-question-circle-o fa-3x text-primary"></i>
-					</div>
-					<div class="margin-left-70">
-						<h3>{!! theme_option('name_title_6') !!}</h3>
-					    <p>{!! theme_option('content_title_6') !!}</p><!--<a class="text-more-info text-primary-hover" href="/">Read more</a>-->
-					</div>
-				</div>
+                @if (has_field($page, 'noi_dung'))
+                    @foreach (get_field($page, 'noi_dung') as $item)
+                    <div class="fullwidth margin-bottom-60">
+                        <div class="float-left">
+                            <i class="{{ get_sub_field($item, 'icon') }} fa-3x text-primary"></i>
+                        </div>
+                        <div class="margin-left-70">
+                            <h3>{{ get_sub_field($item, 'tieu_de') }}</h3>
+                            <p class="text-justify">{{ get_sub_field($item, 'mo_ta') }}</p>
+                        </div>
+                    </div>
+                    @endforeach
+                @endif
 			</div>
 			<!-- right side -->
 			<div class="s-12 m-12 l-4">

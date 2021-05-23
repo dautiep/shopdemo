@@ -421,13 +421,14 @@ if (!function_exists('get_product_attributes_with_set')) {
 if (!function_exists('get_products_by_category')) {
     /**
      * Get list product by ategory
-     * @param init $productId
+     * @param array $categoryId
      * @param int $paginate
+     * @param int $limit
      * @return array
      */
-    function get_products_by_category($categoryId, $paginate) 
+    function get_products_by_category($categoryId, $paginate, $limit)
     {
-        return app(ProductInterface::class)->getproductsByCategory($categoryId, $paginate);
+        return app(ProductInterface::class)->getProductsByCategory($categoryId, $paginate, $limit);
     }
 }
 
@@ -440,5 +441,38 @@ if (!function_exists('get_category_by_product')) {
     function get_category_by_product($product_id)
     {
         return app(ProductInterface::class)->getCategoryByProduct($product_id);
+    }
+}
+
+if (!function_exists('get_product_featured')) {
+    /**
+     * Get product feature
+     * @return array
+     */
+    function get_product_featured()
+    {
+        return app(ProductInterface::class)->getProductFeatured();
+    }
+}
+
+if (!function_exists('get_category_by_product_id')) {
+    /**
+     * @param integer $productId
+     * @return array
+     */
+    function get_category_by_product_id($productId)
+    {
+        return app(ProductInterface::class)->getCategoryByProduct($productId);
+    }
+}
+
+if (!function_exists('get_product_by_branch')) {
+     /**
+     * @param integer $brandId
+     * @return array
+     */
+    function get_product_by_branch($brandId)
+    {
+        return app(ProductInterface::class)->getProductByBranch($brandId);
     }
 }

@@ -179,11 +179,13 @@ interface ProductInterface extends RepositoryInterface
      */
     public function getProductByTags(array $params);
 
-    /**
-     * @param array $params
-     * @return mixed
-     */
-    public function getProductsByCategories(array $params);
+    // /**
+    //  * @param array $categoryId
+    //  * @param int $paginate
+    //  * @param int $limit
+    //  * @return mixed
+    //  */
+    // public function getProductsByCategories(array $categoryId, int $paginate, int $limit);
 
     /**
      * @param array $filters
@@ -191,4 +193,29 @@ interface ProductInterface extends RepositoryInterface
      * @return LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection|Collection|mixed
      */
     public function filterProducts(array $filters, array $params = []);
+
+    /**
+     * @return array
+     */
+    public function getProductFeatured();
+
+    /**
+     * @param int $productId
+     * @return mixed
+     */
+    public function getCategoryByProduct($productId);
+
+    /**
+     * @param int $brandId
+     * @return mixed
+     */
+    public function getProductByBranch($brandId);
+
+    /**
+     * @param array $categoryId
+     * @param int $paginate
+     * @param int $limit
+     * @return mixed
+     */
+    public function getProductsByCategory(array $categoryId, int $paginate, int $limit);
 }

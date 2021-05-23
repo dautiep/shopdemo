@@ -12,21 +12,19 @@ Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'web
         Route::get('/ve-chung-toi', 'MainController@getAbout')
             ->name('public.about-us');
 
-
-     
-      
-
         //Get Cart:
         Route::get('/cart', 'MainController@getCart')
             ->name('public.get-cart');
         //Get Contact:
         Route::get('/lien-he', 'MainController@getContact')
             ->name('public.get-contact');
-        
+
         Route::prefix('san-pham')->group(function() {
              Route::get('/', 'MainController@getProduct')->name('product.category');
-             Route::get('{slug}/{slugPost}', 'MainController@getproductdetail')->name('product.detail');
+             Route::get('{slug}/{slugProduct}', 'MainController@getProductDetail')->name('product.detail');
         });
+
+
         // Get Product Detail:
             //Get Product:
         // Route::get('/san-pham', 'MainController@getProduct')
@@ -36,9 +34,9 @@ Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'web
         //        //Get Blog:
         Route::prefix('tin-tuc')->group(function(){
             Route::get('/', 'MainController@getBlog')->name('get_reset');
-           
+
         });
-      
+
 
         Route::prefix('tin-tuc')->group(function() {
              Route::get('{slug}/{slugPost}', 'MainController@getBlogDetail')->name('blog.detail');
