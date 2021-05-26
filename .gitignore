@@ -526,7 +526,7 @@ tests/media/templates/view/*
 
 /node_modules
 /public/hot
-/public/storage
+# /public/storage
 /storage/*.key
 /vendor
 .DS_Store
