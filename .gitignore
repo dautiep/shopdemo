@@ -12,7 +12,7 @@ bin/*
 
 ############# Laravel #############
 storage/*
-public/storage/
+# public/storage/
 
 ################ GUIDE LINE ####################
 ## To gitignore every file and folder under a directory recursively:

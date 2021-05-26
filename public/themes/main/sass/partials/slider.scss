@@ -8,6 +8,35 @@
     }
 }
 
-.product-name{
+.product-name {
     margin-bottom: 25px;
+}
+
+.button-contact {
+    margin-right: 88px;
+}
+
+.alert-errors {
+    display: none;
+    margin-top: 5px;
+    background: #c72127;
+    color: white;
+    padding: 5px 5px 5px 15px;
+    border-radius: 10px;
+}
+
+.alert-success-info {
+    display: none;
+    margin-top: 5px;
+    background: #28a745;
+    color: white;
+    padding: 5px 5px 5px 15px;
+    border-radius: 10px;
+}
+
+.alert-err {
+    color: #c72127;
+    margin-left: 14px;
+    margin-top: 10px;
+    font-weight: 600;
 }

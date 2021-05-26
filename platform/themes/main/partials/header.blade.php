@@ -11,6 +11,9 @@
 </head>
 
 <body class="size-1140" @if (class_exists('Language', false) && Language::getCurrentLocaleRTL()) dir="rtl" @endif>
+    <script>
+         var contact = "{{route('post-contact')}}";
+    </script>
     <!-- HIDDEN PRODUCTS MENU START -->
     <div id="page-main-content">
         <!-- HEADER START -->

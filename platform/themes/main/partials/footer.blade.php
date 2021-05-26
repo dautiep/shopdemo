@@ -5,46 +5,69 @@
 					<div class="line">
 						<div class="margin">
 							<div class="fullwidth text-center margin-bottom-40">
-								<h5>Hello@website.com</h5>
+								<h5>lovelycomestic@gmail.com</h5>
 							</div>
 							<div class="fullwidth phone-number margin-bottom-60">
-							<div class="s-12 m-6 l-6 margin-s-bottom-60">
-									<span>Call Us</span><br />
-									<a href="">+971 123-456-789</a>
-							</div>
-							<div class="s-12 m-6 l-6">
-									<span>Whatsapp</span><br />
-									<a href="">+971 123-456-789</a>
-							</div>
+                                <div class="s-12 m-6 l-6 margin-s-bottom-60">
+                                        <span>Liên Hệ</span><br />
+                                        <a href="">+971 123 456 789</a>
+                                </div>
 							</div>
 						</div>
 					</div>
 					<!-- contact form -->
 					<div class="line">
-						<form class="footer-form">
+						<form action="javascript:void(0)" class="footer-form">
+                            @csrf
 							<div class="fullwidth">
 								<div class="margin">
 									<div class="s-12 m-6 l-6">
-										<input type="text" name="name" placeholder="Full Name" title="Full Name" required />
+                                        <div class="form-group">
+                                            <input type="text" name="name" placeholder="Họ Tên" title="Full Name" />
+                                            <div class="alert alert-danger alert-err" role="alert" id="name-err">
+                                            </div>
+                                        </div>
 									</div>
 									<div class="s-12 m-6 l-6">
-										<input type="text" name="email" placeholder="Email" title="Email" required />
+                                        <div class="form-group">
+                                            <input type="text" name="email" placeholder="Email" title="Email"/>
+                                            <div class="alert alert-danger alert-err" role="alert" id="email-err">
+                                            </div>
+                                        </div>
 									</div>
 								</div>
 								<div class="margin">
 									<div class="s-12 m-6 l-6">
-										<input type="text" name="mobile" placeholder="Mobile" title="Mobile Number" required />
+                                        <div class="form-group">
+                                            <input type="text" name="phone" placeholder="Số Điện Thoại" title="Mobile Number"/>
+                                            <div class="alert alert-danger alert-err" role="alert" id="phone-err">
+                                            </div>
+                                        </div>
 									</div>
 									<div class="s-12 m-6 l-6">
-										<input type="text" name="subject" placeholder="Subject" title="Subject" />
+                                        <div class="form-group">
+                                            <input type="text" name="subject" placeholder="Chủ Đề" title="Subject" />
+                                            <div class="alert alert-danger alert-err" role="alert" id="subject-err">
+                                            </div>
+                                        </div>
 									</div>
 								</div>
 								<div class="s-12">
-									<textarea name="message" placeholder="Your message" rows="2" required></textarea>
+                                    <div class="form-group">
+                                        <textarea name="message" placeholder="Lời Nhắn" rows="3"></textarea>
+                                        <div class="alert alert-danger alert-err" role="alert" id="message-err">
+                                        </div>
+                                    </div>
 								</div>
-								<div class="s-12 m-12 l-3">
-									<input type="submit" class="button" value="Send to Us">
+								<div class="s-12 m-12 l-3 button-contact">
+									<input id="btn-contact" type="submit" class="button" value="Gửi">
 								</div>
+                                <div class="s-12 m-12 l-8">
+                                    <div class="alert alert-errors" role="alert" id="err-alert">
+                                    </div>
+                                    <div class="alert alert-success-info" role="alert" id="success-alert">
+                                    </div>
+                                </div>
 							</div>
 						</form>
 					</div>
@@ -68,7 +91,7 @@
 							<!-- right -->
 							<div class="s-12 m-12 l-4 payment-methods">
 								<i class="fa fa-cc-visa fa-2x"></i>
-								<i class="fa fa-cc-mastercard fa-2x"></i> 
+								<i class="fa fa-cc-mastercard fa-2x"></i>
 								<i class="fa fa-cc-paypal fa-2x"></i>
 								<i class="fa fa-credit-card fa-2x"></i>
 							</div>

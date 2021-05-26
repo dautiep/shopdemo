@@ -2,11 +2,13 @@
 
 namespace Theme\Main\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Http\Responses\BaseHttpResponse;
 use Platform\Blog\Models\Post;
 use Platform\Blog\Repositories\Interfaces\PostInterface;
+use Platform\Contact\Models\Contact;
 use Platform\Ecommerce\Models\Product;
 use Platform\Ecommerce\Models\ProductCategory;
 use Platform\Ecommerce\Repositories\Interfaces\ProductInterface;
@@ -16,6 +18,8 @@ use Platform\Theme\Http\Controllers\PublicController;
 use Platform\Page\Models\Page;
 use SlugHelper;
 use Theme;
+use Theme\Main\Http\Requests\ContactRequest;
+
 class MainController extends PublicController
 {
     /**
@@ -45,7 +49,7 @@ class MainController extends PublicController
         $data['producAccessories'] = get_products_by_category($categoryAccessories->id, 8, 8);
 
         //lấy ra 2 bài viết mới nhất thuộc tin tức
-         $data['newPosts'] = get_posts_by_category(5);
+         $data['newPosts'] = get_popular_posts(2);
 
         return Theme::scope('index',$data)->render();
     }
@@ -89,8 +93,21 @@ class MainController extends PublicController
     //Get Contact:
     public function getContact(BaseHttpResponse $response)
     {
-
         return Theme::scope('pages.contact-us')->render();
+    }
+
+    public function contact(ContactRequest $request)
+    {
+       try {
+            $input = $request->all();
+            $saveContact = Contact::saveContact($input);
+            if (!$saveContact) {
+                return response()->json([ 'error'=> 'Gửi thông tin liên hệ thất bại.']);
+            }
+            return response()->json([ 'success'=> 'Cảm ơn bạn đã gửi thông tin liên hệ cho chúng tôi.']);
+       } catch (Exception $e) {
+            logger($e->getMessage() . ' at ' . $e->getLine() .  ' in ' . $e->getFile());
+       }
     }
     //Get product:
     public function getProduct( Request $request)

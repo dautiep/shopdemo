@@ -1,8 +1,10 @@
 <!-- BLOG AND FOLLOW US START -->
 <div class="section">
 	<div class="line">
+        <h2 class="text-center"><span class="text-primary">Bài Viết </span>Mới </h1>
+        <hr class="break-small break-center">
 		<div class="margin">
-			<!-- tutorial -->   
+			<!-- tutorial -->
 			@foreach ($newPosts as $k => $post)
                 @if ($k < 2)
 				<div class="s-12 m-12 l-4 margin-m-bottom-60">
@@ -12,8 +14,10 @@
 						</a>
 					</div>
 					<div class="fullwidth">
-						<h3>{{ $post->name }}</h3>
-						<p>{{ $post->description }}</p>
+                        <a class="product-feature" href="{{ route('blog.detail', [get_category_post_by_id(get_category_by_post_id($post->id)->category_id)->slug, $post->slug]) }}">
+                            <h3>{{ $post->name }}</h3>
+                        </a>
+						<p class="text-justify">{{ Str::words($post->description, '30') }}</p>
 					</div>
 				</div>
 				@endif
@@ -54,23 +58,10 @@
 					</div>
 				</div>
 				<div class="fullwidth">
-					<h3>Follow us</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempus quis eros ut aliquam.</p>
+					<h3>Theo dõi chúng tôi</h3>
+					<p>Bạn có thể theo dõi chúng tôi qua các nền tảng trên đây</p>
 			    </div>
 			</div>
-
-			{{-- <!-- blog post -->
-			<div class="s-12 m-12 l-4">
-				<div class="fullwidth margin-bottom">
-				    <a href="" class="image-hover-zoom">
-					    <img src="{{ Theme::asset()->url('img/tutorial.jpg') }}" alt="">
-					</a>
-				</div>
-				<div class="fullwidth">
-					<h3>Read our blog</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempus quis eros ut aliquam.</p>
-			    </div>
-			</div> --}}
 		</div>
 	</div>
 </div>

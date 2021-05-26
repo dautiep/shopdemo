@@ -2,7 +2,7 @@
 <div class="section">
 	<div class="line">
 	  <!-- heading -->
-	  <h1 class="text-center"><span class="text-primary">Sản </span> Phẩm </h1>
+	  <h2 class="text-center"><span class="text-primary">Sản </span> Phẩm </h2>
 	  <hr class="break-small break-center">
 		<!-- products tabs start -->
 		<div class="tabs">

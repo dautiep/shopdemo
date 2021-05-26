@@ -56,4 +56,16 @@ class Contact extends BaseModel
     {
         return $this->hasMany(ContactReply::class);
     }
+
+    public static function saveContact($input)
+    {
+        $contact = new Contact();
+        $contact->name = $input['name'];
+        $contact->email = $input['email'];
+        $contact->phone = $input['phone'];
+        $contact->subject = $input['subject'];
+        $contact->content = $input['message'];
+        $contact->save();
+        return $contact;
+    }
 }

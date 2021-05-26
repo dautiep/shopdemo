@@ -9,37 +9,23 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'web'], function () {
     Route::group(apply_filters(BASE_FILTER_GROUP_PUBLIC_ROUTE, []), function () {
         //Get About US:
-        Route::get('/ve-chung-toi', 'MainController@getAbout')
-            ->name('public.about-us');
+        Route::get('/ve-chung-toi', 'MainController@getAbout')->name('public.about-us');
 
         //Get Cart:
-        Route::get('/cart', 'MainController@getCart')
-            ->name('public.get-cart');
+        Route::get('/cart', 'MainController@getCart')->name('public.get-cart');
+
         //Get Contact:
-        Route::get('/lien-he', 'MainController@getContact')
-            ->name('public.get-contact');
+        Route::get('/lien-he', 'MainController@getContact')->name('public.get-contact');
+        Route::post('/lien-he-shop', 'MainController@contact')->name('post-contact');
 
         Route::prefix('san-pham')->group(function() {
              Route::get('/', 'MainController@getProduct')->name('product.category');
              Route::get('{slug}/{slugProduct}', 'MainController@getProductDetail')->name('product.detail');
         });
 
-
-        // Get Product Detail:
-            //Get Product:
-        // Route::get('/san-pham', 'MainController@getProduct')
-        //         ->name('public.get-product');
-        // Route::get('/product-detail', 'MainController@getProductDetail')
-        //     ->name('public.get-product-detail');
-        //        //Get Blog:
         Route::prefix('tin-tuc')->group(function(){
             Route::get('/', 'MainController@getBlog')->name('get_reset');
-
-        });
-
-
-        Route::prefix('tin-tuc')->group(function() {
-             Route::get('{slug}/{slugPost}', 'MainController@getBlogDetail')->name('blog.detail');
+            Route::get('{slug}/{slugPost}', 'MainController@getBlogDetail')->name('blog.detail');
         });
     });
 });

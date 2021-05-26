@@ -91,12 +91,10 @@ h2 {
 h3 {
   font-size:1.2em;
   line-height: 1.5em;
-  font-family: 'Raleway-Medium';
 }
 h4 {
   font-size:1.2em;
   line-height: 1.5em;
-  font-family: 'Raleway-Medium';
 }
 h5 {
   font-size:1.2em;
@@ -1182,7 +1180,7 @@ display:none;
 
 /* footer form */
 footer .footer-form input, footer .footer-form textarea, footer .footer-form select {
-  margin-bottom:3em;
+  /* margin-bottom:3em; */
   color:#fff;
   font-size:15px;
   background:none;
