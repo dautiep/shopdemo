@@ -277,3 +277,16 @@ if (!function_exists('get_category_post_by_id')) {
     }
 }
 
+if (!function_exists('get_related_by_category')) {
+    /**
+     * @param int $id
+     * @param int $categoryId
+     * @param int $limit
+     * @return mixed
+     */
+    function get_related_by_category($id, $categoryId, $limit)
+    {
+        return app(PostInterface::class)->getRelatedByCategory($id, $categoryId, $limit);
+    }
+}
+

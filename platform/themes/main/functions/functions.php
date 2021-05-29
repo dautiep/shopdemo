@@ -15,7 +15,8 @@ add_shortcode('Contact-form', 'Contact Form', 'Contact form my custom', function
 RvMedia::addSize('new_post', 360, 225)
 ->addSize('midle',550,255)
 ->addSize('product',370,370)
-->addSize('product-homepage', 280, 240);
+->addSize('product-homepage', 280, 240)
+->addSize('post-recent', 115, 95);
 theme_option()
     ->setField([
         'id'         => 'copyright',

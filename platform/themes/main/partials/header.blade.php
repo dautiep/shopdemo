@@ -47,6 +47,7 @@
                                 </li>
                                 <li><a href="#">{!! theme_option('gmail') !!}</a></li>
                                 <li><a href="#">{!! theme_option('phone_number') !!}</a></li>
+                                <li><a href="{{ route('guest.login') }}">Đăng nhập</a></li>
                             </ul>
                         </div>
                     </div>

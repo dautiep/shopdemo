@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'web'], function () {
     Route::group(apply_filters(BASE_FILTER_GROUP_PUBLIC_ROUTE, []), function () {
+        //Auth
+        Route::get('dang-nhap', 'LoginController@getViewLogin')->name('guest.login');
+        Route::get('dang-ky', 'LoginController@getViewregister')->name('guest.register');
+        Route::post('dang-ky', 'LoginController@register')->name('guest.post.register');
+
         //Get About US:
         Route::get('/ve-chung-toi', 'MainController@getAbout')->name('public.about-us');
 
@@ -25,6 +30,7 @@ Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'web
 
         Route::prefix('tin-tuc')->group(function(){
             Route::get('/', 'MainController@getBlog')->name('get_reset');
+            Route::get('{slug}', 'MainController@getBlogCategory')->name('blog.category');
             Route::get('{slug}/{slugPost}', 'MainController@getBlogDetail')->name('blog.detail');
         });
     });

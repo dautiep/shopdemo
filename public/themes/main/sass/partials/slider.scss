@@ -35,8 +35,9 @@
 }
 
 .alert-err {
+    position: relative;
+    display: none;
     color: #c72127;
-    margin-left: 14px;
     margin-top: 10px;
     font-weight: 600;
 }

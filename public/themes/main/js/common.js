@@ -66,18 +66,23 @@ let App = {
                 error: function (response) {
                     var err = JSON.parse(response.responseText)
                     if(err.errors.name){
+                        $('#name-err').css('display', 'block');
                         $('#name-err').text(err.errors.name[0]);
                     }
                     if(err.errors.phone){
+                        $('#phone-err').css('display', 'block');
                         $('#phone-err').text(err.errors.phone[0]);
                     }
                     if(err.errors.email){
+                        $('#email-err').css('display', 'block');
                         $('#email-err').text(err.errors.email[0]);
                     }
                     if(err.errors.subject){
+                        $('#subject-err').css('display', 'block');
                         $('#subject-err').text(err.errors.subject[0]);
                     }
                     if(err.errors.message){
+                        $('#message-err').css('display', 'block');
                         $('#message-err').text(err.errors.message[0]);
                     }
                 }

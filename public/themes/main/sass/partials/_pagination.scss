@@ -1,68 +1,74 @@
 .detail-pagination {
-    padding-top: 1rem;
+    padding-top: 3rem;
     padding-bottom: 2rem;
     margin: 0 auto !important;
     display: block;
     text-align: center;
     border-radius: 4px;
     padding-left: 0;
-    font-family: $ROBOTO-REGULAR;
-    @include fontSize(13);
+
     .pagination {
-        font-family: $ROBOTO-REGULAR;
+        // font-family: $ROBOTO-REGULAR;
         justify-content: center;
+
     }
+
     .page {
-        font-family: $ROBOTO-REGULAR;
+        // font-family: $ROBOTO-REGULAR;
         font-size: 13px;
         display: inline-block;
-        background-color: $primary_color;
+        background-color: #cf9963;
         margin-right: 5px;
         min-width: 32px;
         line-height: 18px;
         text-align: center;
         padding: 6px 10px;
-        color: $primary_color_text;
+        color: #fff;
         cursor: pointer;
         border: thin solid rgba(0, 0, 0, .1);
         margin-bottom: 5px;
+
         .fas {
-            color: $primary_color_text;
+            color: #fff;
         }
+
     }
+
     .page:hover {
-        background: $primary_color_hover;
-        color: $primary_color_text;
+        background: #ccc;
+        color: #000;
         transition: 0.2s all ease;
         text-decoration: none;
+
         .pagination-other-current--link {
-            color: $primary_color_text_hover;
+            color: black;
+
         }
+
         .icon {
-            color: $primary_color_text_hover;
+            color: black;
         }
     }
+
     .page:focus {
         outline: thin dotted;
         outline: 5px auto -webkit-focus-ring-color;
         outline-offset: -2px;
-        background-color: $primary_color;
-        color: $primary_color_text;
+        background-color: #ccc;
+        color: #000;
     }
+
     .active {
-        background: $primary_color;
-        color: $primary_color_text;
-        &:hover {
-            background-color: $primary_color_hover;
-            color: $primary_color_text_hover;
-            .icon {}
-        }
+        background: #ccc;
+        color: #000;
     }
+
 }
 
 .pagination-other-current--link {
-    color: $primary_color_text;
+    color: white !important;
+
     &:hover {
-        color: $primary_color_text_hover !important;
+        color: black;
     }
 }

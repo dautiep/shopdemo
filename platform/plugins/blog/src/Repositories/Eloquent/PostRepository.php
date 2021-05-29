@@ -284,4 +284,27 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
 
         return $this->applyBeforeExecuteQuery($this->model)->paginate((int)$filters['per_page']);
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRelatedByCategory($id, $categoryId, $limit = 6)
+    {
+        if (!is_array($categoryId)) {
+            $categoryId = [$categoryId];
+        }
+
+        $data = $this->model
+            ->where('posts.status', BaseStatusEnum::PUBLISHED)
+            ->where('posts.id', '!=', $id)
+            ->join('post_categories', 'post_categories.post_id', '=', 'posts.id')
+            ->join('categories', 'post_categories.category_id', '=', 'categories.id')
+            ->whereIn('post_categories.category_id', $categoryId)
+            ->select('posts.*')
+            ->distinct()
+            ->with('slugable')
+            ->orderBy('posts.created_at', 'desc');
+
+        return $this->applyBeforeExecuteQuery($data)->limit($limit)->get();
+    }
 }

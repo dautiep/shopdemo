@@ -984,4 +984,20 @@ class ProductRepository extends RepositoriesAbstract implements ProductInterface
 
         return $this->applyBeforeExecuteQuery($data)->limit($limit)->get();
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAllProducts($perPage = 12, $active = true, array $with = ['slugable'])
+    {
+        $data = $this->model->select('ec_products.*')
+            ->with($with)
+            ->orderBy('ec_products.created_at', 'desc');
+
+        if ($active) {
+            $data = $data->where('ec_products.status', BaseStatusEnum::PUBLISHED);
+        }
+
+        return $this->applyBeforeExecuteQuery($data)->paginate($perPage);
+    }
 }

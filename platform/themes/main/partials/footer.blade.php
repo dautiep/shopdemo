@@ -24,14 +24,14 @@
 									<div class="s-12 m-6 l-6">
                                         <div class="form-group">
                                             <input type="text" name="name" placeholder="Họ Tên" title="Full Name" />
-                                            <div class="alert alert-danger alert-err" role="alert" id="name-err">
+                                            <div class="alert-err" role="alert" id="name-err">
                                             </div>
                                         </div>
 									</div>
 									<div class="s-12 m-6 l-6">
                                         <div class="form-group">
                                             <input type="text" name="email" placeholder="Email" title="Email"/>
-                                            <div class="alert alert-danger alert-err" role="alert" id="email-err">
+                                            <div class="alert-err" role="alert" id="email-err">
                                             </div>
                                         </div>
 									</div>
@@ -40,14 +40,14 @@
 									<div class="s-12 m-6 l-6">
                                         <div class="form-group">
                                             <input type="text" name="phone" placeholder="Số Điện Thoại" title="Mobile Number"/>
-                                            <div class="alert alert-danger alert-err" role="alert" id="phone-err">
+                                            <div class="alert-err" role="alert" id="phone-err">
                                             </div>
                                         </div>
 									</div>
 									<div class="s-12 m-6 l-6">
                                         <div class="form-group">
                                             <input type="text" name="subject" placeholder="Chủ Đề" title="Subject" />
-                                            <div class="alert alert-danger alert-err" role="alert" id="subject-err">
+                                            <div class="alert-err" role="alert" id="subject-err">
                                             </div>
                                         </div>
 									</div>
@@ -55,7 +55,7 @@
 								<div class="s-12">
                                     <div class="form-group">
                                         <textarea name="message" placeholder="Lời Nhắn" rows="3"></textarea>
-                                        <div class="alert alert-danger alert-err" role="alert" id="message-err">
+                                        <div class="alert-err" role="alert" id="message-err">
                                         </div>
                                     </div>
 								</div>
@@ -63,9 +63,9 @@
 									<input id="btn-contact" type="submit" class="button" value="Gửi">
 								</div>
                                 <div class="s-12 m-12 l-8">
-                                    <div class="alert alert-errors" role="alert" id="err-alert">
+                                    <div class="alert-errors" role="alert" id="err-alert">
                                     </div>
-                                    <div class="alert alert-success-info" role="alert" id="success-alert">
+                                    <div class="alert-success-info" role="alert" id="success-alert">
                                     </div>
                                 </div>
 							</div>

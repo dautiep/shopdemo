@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use RvMedia;
 
 /**
@@ -106,5 +107,16 @@ class Customer extends Authenticatable
             Review::where('customer_id', $customer->id)->delete();
             Wishlist::where('customer_id', $customer->id)->delete();
         });
+    }
+
+    public static function saveCustomer($input)
+    {
+        $customer = new Customer();
+        $customer->name = $input['nameCustomer'];
+        $customer->email = $input['emailCustomer'];
+        $customer->password = Hash::make($input['passwordCustomer']);
+        $customer->phone = $input['phoneCustomer'];
+        $customer->save();
+        return $customer;
     }
 }

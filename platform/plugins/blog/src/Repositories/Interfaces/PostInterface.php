@@ -96,4 +96,13 @@ interface PostInterface extends RepositoryInterface
      * @return array
      */
     public function getRelatedCategoryIds($model);
+
+    /**
+     * @param int $id
+     * @param int $categoryId
+     * @param int $limit
+     * @return array
+     */
+    public function getRelatedByCategory($id, $categoryId, $limit);
+
 }

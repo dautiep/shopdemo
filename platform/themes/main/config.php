@@ -55,6 +55,8 @@ return [
             $theme->asset()->add('swiper_css', 'https://unpkg.com/swiper/swiper-bundle.min.css'); //swiper
             $theme->asset()->add('swiper_codebean', 'https://use.fontawesome.com/releases/v5.5.0/css/all.css'); //swiper
             $theme->asset()->container('after_header')->usePath()->add('fonts', 'templates/css/fonts.css');
+            // $theme->asset()->add('boostrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css');
+
             // $theme->asset()->container('after_header')->usePath()->add('hover', 'templates/css/hover.css');
             // $theme->asset()->container('after_header')->usePath()->add('imagehover', 'templates/css/imagehover.css');
             // $theme->asset()->container('after_header')->usePath()->add('normalize', 'templates/css/normalize.css');

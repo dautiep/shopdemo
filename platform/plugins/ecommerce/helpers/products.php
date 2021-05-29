@@ -40,7 +40,7 @@ if (!function_exists('get_products')) {
             'take'      => null,
             'paginate'  => [
                 'per_page'      => null,
-                'current_paged' => 1,
+                'current_paged' => 2,
             ],
             'select'    => [
                 'ec_products.*',
@@ -474,5 +474,17 @@ if (!function_exists('get_product_by_branch')) {
     function get_product_by_branch($brandId)
     {
         return app(ProductInterface::class)->getProductByBranch($brandId);
+    }
+}
+
+if (!function_exists('get_all_products')) {
+    /**
+     * @param boolean $active
+     * @param int $perPage
+     * @return \Illuminate\Support\Collection
+     */
+    function get_all_products($active = true, $perPage = 12)
+    {
+        return app(ProductInterface::class)->getAllProducts($perPage, $active);
     }
 }

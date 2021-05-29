@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Http\Responses\BaseHttpResponse;
+use Platform\Blog\Models\Category;
 use Platform\Blog\Models\Post;
 use Platform\Blog\Repositories\Interfaces\PostInterface;
 use Platform\Contact\Models\Contact;
@@ -79,17 +80,13 @@ class MainController extends PublicController
         $data['page'] = $pageRepository->getFirstBy(['id' => $slug->reference_id, 'status' => BaseStatusEnum::PUBLISHED]);
         return Theme::scope('pages.about-us', $data)->render();
     }
-    //Get Blog:
-    public function getBlog(BaseHttpResponse $response)
-    {
-        return Theme::scope('pages.blog')->render();
-    }
 
     //Get Cart:
     public function getCart(BaseHttpResponse $response)
     {
         return Theme::scope('pages.cart')->render();
     }
+
     //Get Contact:
     public function getContact(BaseHttpResponse $response)
     {
@@ -109,14 +106,11 @@ class MainController extends PublicController
             logger($e->getMessage() . ' at ' . $e->getLine() .  ' in ' . $e->getFile());
        }
     }
+
     //Get product:
     public function getProduct( Request $request)
     {
-
-        $data['product']=Product::query()
-        ->get();
-
-
+        $data['products'] = get_all_products(true, 14);
         return Theme::scope('pages.product',$data)->render();
     }
 
@@ -131,6 +125,32 @@ class MainController extends PublicController
         $data['product'] = $productRepository->getFirstBy(['id' => $slugProduct->reference_id]);
         return Theme::scope('pages.product-detail', $data)->render();
     }
+
+    //Get Blog:
+    public function getBlog()
+    {
+        $data['posts'] = get_all_posts(true, 2);
+        return Theme::scope('pages.blog', $data)->render();
+    }
+
+    /**
+     * @return \Illuminate\Http\Response|Response
+     */
+    public function getBlogCategory($slug, SlugInterface $slugRepository)
+    {
+        $slug = $slugRepository->getFirstBy([
+            'key' => $slug,
+            'reference_type' => Category::class,
+            'prefix' => SlugHelper::getPrefix(Category::class),
+        ]);
+        if (!$slug) {
+            abort('404');
+        }
+        $data['category'] = get_category_by_id($slug->reference_id);
+        $data['posts'] = get_posts_by_category($data['category']->id, 4);
+        return Theme::scope('pages.blog', $data)->render();
+    }
+
      /**
      * @return \Illuminate\Http\Response|Response
      */
@@ -141,6 +161,7 @@ class MainController extends PublicController
         }
         $slugPost = $slugRepository->getFirstBy(['key' => $slugPost, 'reference_type' => Post::class]);
         $data['contentPost'] = $postRepository->getFirstBy(['id' => $slugPost->reference_id]);
+        // dd(get_all_categories());
         return Theme::scope('pages.blog-post', $data)->render();
     }
 }

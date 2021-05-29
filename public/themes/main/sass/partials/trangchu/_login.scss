@@ -1,0 +1,30 @@
+.header-login {
+    background: #cf9963;
+    color: white;
+    font-weight: 600px;
+}
+
+.login-btn {
+    background: #cf9963;
+    &:hover {
+        color: #cf9963;
+        background: white;
+        border: 1px solid #cf9963;
+    }
+}
+
+.text-register {
+    text-decoration: underline !important;
+
+    &:hover {
+        text-decoration: underline !important;
+    }
+}
+
+.alert-register {
+    display: block;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 100%;
+    color: #dc3545;
+}
