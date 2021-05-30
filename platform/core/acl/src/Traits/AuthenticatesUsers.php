@@ -93,8 +93,7 @@ trait AuthenticatesUsers
     protected function attemptLogin(Request $request)
     {
         return $this->guard()->attempt(
-            $this->credentials($request), $request->filled('remember')
-        );
+            $this->credentials($request));
     }
 
     /**
@@ -115,7 +114,7 @@ trait AuthenticatesUsers
      */
     protected function credentials(Request $request)
     {
-        return $request->only($this->username(), 'password');
+        return $request->only('email', 'password');
     }
 
     /**

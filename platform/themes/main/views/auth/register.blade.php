@@ -1,4 +1,4 @@
-<div class="container ">
+<div class="container login_block "style=" display: block ;">
     <div class="card mt-3">
         <div class="card-header header-login">
           ĐĂNG KÝ TÀI KHOẢN

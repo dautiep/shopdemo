@@ -99,9 +99,9 @@ class MainController extends PublicController
             $input = $request->all();
             $saveContact = Contact::saveContact($input);
             if (!$saveContact) {
-                return response()->json([ 'error'=> 'Gửi thông tin liên hệ thất bại.']);
+                return response()->json([ 'error' => 'Gửi thông tin liên hệ thất bại.']);
             }
-            return response()->json([ 'success'=> 'Cảm ơn bạn đã gửi thông tin liên hệ cho chúng tôi.']);
+            return response()->json([ 'success' => 'Cảm ơn bạn đã gửi thông tin liên hệ cho chúng tôi.']);
        } catch (Exception $e) {
             logger($e->getMessage() . ' at ' . $e->getLine() .  ' in ' . $e->getFile());
        }
@@ -149,6 +149,24 @@ class MainController extends PublicController
         $data['category'] = get_category_by_id($slug->reference_id);
         $data['posts'] = get_posts_by_category($data['category']->id, 4);
         return Theme::scope('pages.blog', $data)->render();
+    }
+
+    /**
+     * @return \Illuminate\Http\Response|Response
+     */
+    public function getProductCategory($slug, SlugInterface $slugRepository)
+    {
+        $slug = $slugRepository->getFirstBy([
+            'key' => $slug,
+            'reference_type' => ProductCategory::class,
+            'prefix' => SlugHelper::getPrefix(ProductCategory::class),
+        ]);
+        if (!$slug) {
+            abort('404');
+        }
+        $data['category'] = get_category_product_by_id($slug->reference_id);
+        $data['products'] = get_products_by_category($data['category']->id, 14, 0);
+        return Theme::scope('pages.product',$data)->render();
     }
 
      /**

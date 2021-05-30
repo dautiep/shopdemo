@@ -1,18 +1,29 @@
-<div class="container">
+<div class="container login_block" style=" display: block ;">
     <div class="card mt-3">
         <div class="card-header header-login">
           ĐĂNG NHẬP
         </div>
         <div class="card-body">
-            <form class="form">
+            <form class="form" action="{{ route('login.post') }}" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     <small id="emailHelp" class="form-text text-muted">Chúng tôi sẽ không chia sẻ địa chỉ email của bạn cho bất cứ ai</small>
+                    @if ($errors->has('email'))
+                        <span class="alert-register" role="alert">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Mật Khẩu</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+                    @if ($errors->has('password'))
+                        <span class="alert-register" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
                 </div>
                 <div class="form-group form-check">
                 {{-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> --}}
@@ -31,5 +42,4 @@
         <div class="card-footer text-muted header-login mb-3">
         </div>
       </div>
-
 </div>

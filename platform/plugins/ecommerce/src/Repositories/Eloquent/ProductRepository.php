@@ -1000,4 +1000,5 @@ class ProductRepository extends RepositoriesAbstract implements ProductInterface
 
         return $this->applyBeforeExecuteQuery($data)->paginate($perPage);
     }
+
 }

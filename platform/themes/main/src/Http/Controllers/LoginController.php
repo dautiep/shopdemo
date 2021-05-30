@@ -42,4 +42,9 @@ class LoginController extends PublicController
             logger($e->getMessage() . ' at ' . $e->getLine() .  ' in ' . $e->getFile());
         }
     }
+
+    public function login(Request $request)
+    {
+        dd(0);
+    }
 }
