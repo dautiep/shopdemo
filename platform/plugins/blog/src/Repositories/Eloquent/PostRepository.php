@@ -203,7 +203,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
     {
         $data = $this->model
             ->with('slugable')
-            ->orderBy('posts.views', 'desc')
+            ->orderBy('posts.created_at', 'desc')
             ->select('posts.*')
             ->where('posts.status', BaseStatusEnum::PUBLISHED)
             ->limit($limit);
