@@ -3,6 +3,7 @@ namespace Theme\Main\Http\Controllers;
 
 use Exception;
 use Illuminate\Http\Request;
+use Platform\Cart\Models\Cart;
 use Platform\Ecommerce\Models\Customer;
 use Platform\Theme\Http\Controllers\PublicController;
 use Theme;
@@ -33,18 +34,19 @@ class LoginController extends PublicController
     {
         try {
             $input = $request->all();
+            //create customer
             $saveCustomer = Customer::saveCustomer($input);
-            if (!$saveCustomer) {
+
+            //create cart customer
+            $dataCart = [];
+            $dataCart['customerId'] = $saveCustomer->id;
+            $saveCart = Cart::saveCart($dataCart);
+            if (!$saveCustomer || !$saveCart) {
                 return \Redirect::back()->withErrors(['error' => 'Đăng ký thông tin thất bại!']);
             }
             return \Redirect::back()->with(['success' => 'Đăng ký thông tin thành công']);
         } catch(Exception $e) {
             logger($e->getMessage() . ' at ' . $e->getLine() .  ' in ' . $e->getFile());
         }
-    }
-
-    public function login(Request $request)
-    {
-        dd(0);
     }
 }

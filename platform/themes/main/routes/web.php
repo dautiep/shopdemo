@@ -2,38 +2,43 @@
 
 // Custom routes
 // You can delete this route group if you don't need to add your custom routes.
-
-
 use Illuminate\Support\Facades\Route;
 
+Route::get('dang-nhap', 'Platform\Ecommerce\Http\Controllers\Customers\LoginGuestController@index')->middleware('web')->name('guest.login');
+Route::post('dang-nhap', 'Platform\Ecommerce\Http\Controllers\Customers\LoginController@login')->middleware('web')->name('login.post');
 
-Route::group([
-    'namespace'  => 'Platform\Ecommerce\Http\Controllers\Customers',
-    'middleware' => ['web', 'core', 'customer.guest'],
-], function () {
-    Route::get('dang-nhap', 'LoginGuestController@index')->name('guest.login');
-    Route::post('dang-nhap', 'LoginGuestController@login')->name('login.post');
+Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'customer'], function () {
+    Route::get('cart', 'MainController@getCart')->name('public.get-cart');
 });
 
 Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'web'], function () {
     Route::group(apply_filters(BASE_FILTER_GROUP_PUBLIC_ROUTE, []), function () {
         //Auth
-        // Route::get('dang-nhap', 'LoginController@getViewLogin')->name('guest.login');
         Route::get('dang-ky', 'LoginController@getViewregister')->name('guest.register');
         Route::post('dang-ky', 'LoginController@register')->name('guest.post.register');
 
+        //cart
+        Route::prefix('cart')->group(function () {
+            Route::post('add-to-cart', 'CartController@addCart')->name('cart.add');
+            Route::group(['middleware' => 'customer'], function () {
+                Route::get('', 'CartController@getCart')->name('public.get-cart');
+                Route::post('update-cart', 'CartController@updateCart')->name('cart.update');
+                Route::post('remove-detail-cart', 'CartController@removeDetailCart')->name('cart.remove-detail');
+                Route::get('/checkout', 'CartController@payment')->name('cart.checkout');
+                Route::post('/confirm-checkout', 'CartController@createOrder')->name('cart.create.order');
+            });
+        });
+
+
         //Get About US:
         Route::get('/ve-chung-toi', 'MainController@getAbout')->name('public.about-us');
-
-        //Get Cart:
-        Route::get('/cart', 'MainController@getCart')->name('public.get-cart');
 
         //Get Contact:
         Route::get('/lien-he', 'MainController@getContact')->name('public.get-contact');
         Route::post('/lien-he-shop', 'MainController@contact')->name('post-contact');
 
         Route::prefix('san-pham')->group(function() {
-             Route::get('/', 'MainController@getProduct');
+             Route::get('/', 'MainController@getProduct')->name('product.index');
              Route::get('/{slug}', 'MainController@getProductCategory')->name('product.category');
              Route::get('{slug}/{slugProduct}', 'MainController@getProductDetail')->name('product.detail');
         });

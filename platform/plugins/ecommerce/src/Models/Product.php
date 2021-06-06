@@ -419,6 +419,7 @@ class Product extends BaseModel
         return $this->front_sale_price ?? $this->price ?? 0;
     }
 
+
     /**
      * @return BelongsToMany
      */
@@ -589,5 +590,15 @@ class Product extends BaseModel
         }
 
         return $this->price + $this->price * ($this->tax->percentage / 100);
+    }
+
+    public static function updateQuantity($quantity, $productId)
+    {
+        $product = Product::where('id', $productId)->first();
+        if (!empty($product)) {
+            $product->quantity = $product->quantity - $quantity;
+            $product->save();
+            return $product;
+        }
     }
 }

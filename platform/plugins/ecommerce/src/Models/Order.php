@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use OrderHelper;
+use Theme\Main\Http\Enums\EStatus;
 
 class Order extends BaseModel
 {
@@ -45,13 +46,13 @@ class Order extends BaseModel
         'token',
     ];
 
-    /**
-     * @var string[]
-     */
-    protected $casts = [
-        'status'          => OrderStatusEnum::class,
-        'shipping_method' => ShippingMethodEnum::class,
-    ];
+    // /**
+    //  * @var string[]
+    //  */
+    // protected $casts = [
+    //     'status'          => OrderStatusEnum::class,
+    //     'shipping_method' => ShippingMethodEnum::class,
+    // ];
 
     /**
      * @var array
@@ -148,5 +149,17 @@ class Order extends BaseModel
     public function canBeCanceled()
     {
         return in_array($this->status, [OrderStatusEnum::PENDING, OrderStatusEnum::PROCESSING]);
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function saveOrder($input)
+    {
+        $order = new Order();
+        $order->user_id = auth('customer')->user()->id;
+        $order->sub_total = $input['amountOrder'];
+        $order->save();
+        return $order;
     }
 }

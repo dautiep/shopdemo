@@ -1,6 +1,6 @@
 "use strict";
 jQuery(document).ready(function($) {
-	
+
 	//hidden products menu
     //show
 	$(".hidden-menu-trigger").on("click", function (event) {
@@ -48,14 +48,24 @@ jQuery(document).ready(function($) {
   });
 
     //product quantity
-    $(".numbers-row").append('<div class="inc quantity-btn">+</div><div class="dec quantity-btn">-</div>');
+    // $(".numbers-row").append('');
 
     $(".quantity-btn").on("click", function () {
-
-        var $button = $(this), oldValue = $button.parent().find("input").val();
-
+        var quantity = $('#total-store').val();
+        var $button = $(this), oldValue = $('#french-hens').val();
         if ($button.text() === "+") {
-            var newVal = parseFloat(oldValue) + 1;
+            if (parseInt(oldValue) >= parseInt(quantity)) {
+                console.log(oldValue, quantity)
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Chú ý...',
+                    text: 'Số lượng sản phẩm vượt quá số lượng cho phép!'
+                });
+                oldValue = $('#french-hens').val();
+            } else {
+                var newVal = parseFloat(oldValue) + 1;
+            }
+
         } else {
     // Do not allow decrementing below zero
             if (oldValue > 0) {
@@ -65,10 +75,10 @@ jQuery(document).ready(function($) {
             }
 	    }
 
-        $button.parent().find("input").val(newVal);
+        $('#french-hens').val(newVal);
 
     });
-	
+
 	//Tabs
     $('.tabs').each(function(intex, element) {
       $(this).prepend('<div class="tab-nav line"></div>');
@@ -91,8 +101,8 @@ jQuery(document).ready(function($) {
           return false;
       });
     });
-  
-    //Navigation   
+
+    //Navigation
     $('.top-nav > ul > li ul').each(function(index, element) {
       var count = $(element).find('li').length;
       var content = '<span class="count-number"> ' + count + '</span>';
@@ -103,13 +113,13 @@ jQuery(document).ready(function($) {
     $('.top-nav > ul li.submenu > a').attr('aria-haspopup', 'true').click(function() {
       //Close other open sub menus
       $('.top-nav > ul li.submenu:hover > ul').toggleClass('show-ul', 'slow');
-    }); 
-    $('.top-nav > ul ul > li.sub-submenu > a').attr('aria-haspopup', 'true').click(function() {  
-      //Close other open sub menus
-      $('.top-nav ul ul li > ul').removeClass('show-ul', 'slow');  
-      $('.top-nav ul ul li:hover > ul').toggleClass('show-ul', 'slow');   
     });
-    //Mobile aside navigation  
+    $('.top-nav > ul ul > li.sub-submenu > a').attr('aria-haspopup', 'true').click(function() {
+      //Close other open sub menus
+      $('.top-nav ul ul li > ul').removeClass('show-ul', 'slow');
+      $('.top-nav ul ul li:hover > ul').toggleClass('show-ul', 'slow');
+    });
+    //Mobile aside navigation
       $('.nav-text').click(function() {
       $('.top-nav > ul').toggleClass('show-menu', 'slow');
     });
@@ -117,7 +127,7 @@ jQuery(document).ready(function($) {
 });
 
 
-	
+
 // Content Animation start
 var scrollCb = function () {
 	var tiles = $(".animated");

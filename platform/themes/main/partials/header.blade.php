@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, user-scalable=1"
         name="viewport" />
 
@@ -38,16 +39,26 @@
                         <div class="right">
                             <ul class="topbar-menu">
                                 <li class="topbar-menu-item">
-                                    <span class="number-cart">
-                                        0
-                                    </span>
-                                    <a href="#">
+                                    @if (!empty(auth('customer')->user()))
+                                        <span class="number-cart">
+                                            {{ auth('customer')->user()->getCart->getDetailcart->count() }}
+                                        </span>
+                                    @else
+                                        <span class="number-cart">
+                                            0
+                                        </span>
+                                    @endif
+                                    <a href="{{ route('public.get-cart') }}">
                                         <i class="fas fa-shopping-cart"></i>
                                     </a>
                                 </li>
                                 <li><a href="#">{!! theme_option('gmail') !!}</a></li>
                                 <li><a href="#">{!! theme_option('phone_number') !!}</a></li>
-                                <li><a href="{{ route('guest.login') }}">Đăng nhập</a></li>
+                                @if (!empty(auth('customer')->user()))
+                                    <li><a  href="{{ route('customer.logout') }}">Đăng xuất</a></li>
+                                @else
+                                    <li><a href="{{ route('guest.login') }}">Đăng nhập</a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>

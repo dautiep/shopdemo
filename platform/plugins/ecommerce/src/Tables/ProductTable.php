@@ -79,7 +79,6 @@ class ProductTable extends TableAbstract
             })
             ->editColumn('price', function ($item) {
                 $price = format_price($item->front_sale_price);
-
                 if ($item->front_sale_price != $item->price) {
                     $price .= ' <del class="text-danger">' . format_price($item->price) . '</del>';
                 }

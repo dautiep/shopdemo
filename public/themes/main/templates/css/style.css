@@ -160,7 +160,7 @@ p {
 
 b,strong {
   font-weight:normal;
-  font-family: 'Raleway-Medium';
+  /* font-family: 'Raleway-Medium'; */
 }
 
 img {
@@ -418,6 +418,9 @@ a.remove-item:after {
 -ms-transition: all 0.20s linear 0s;
 -moz-transition: all 0.20s linear 0s;
 -webkit-transition: all 0.20s linear 0s;
+}
+a.remove-item:hover {
+    color: #dc3545!important;
 }
 a.remove-item:hover:after {
   margin-left: 0.600rem;
@@ -1381,9 +1384,9 @@ footer .footer-form :-moz-placeholder { /* Firefox 4 - 18 */
 .cart-item .cart-item-detail{
   padding-left:30px;
 }
-.cart-item .cart-item-image{
+/* .cart-item .cart-item-image{
   border:solid 1px #c9bec1;
-}
+} */
 
 /* product left right */
 .item-left {
@@ -1590,3 +1593,95 @@ footer .payment-methods i {
 footer .payment-methods i:hover {
   color:#cf9963;
 }
+
+/*custom css*/
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.number-input {
+    border: 1px solid #cf9963;
+    border-radius: 5px;
+    display: inline-flex;
+}
+
+.number-input,
+.number-input * {
+    box-sizing: border-box;
+}
+
+.number-input button {
+    outline:none;
+-webkit-appearance: none;
+    background-color: #cf9963;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    color: white;
+}
+
+.number-input button:after {
+    display: inline-block;
+    position: absolute;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: '\f077';
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+.number-input button.plus:after {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.number-input input[type=number] {
+    font-family: sans-serif;
+    max-width: 5rem;
+    padding: .5rem;
+    /* border: solid #ddd; */
+    border-width: 0 2px;
+    font-size: 1.5rem;
+    height: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.quantity-cart {
+    display: flex;
+}
+
+.quantity-cart .quantity-text {
+    width: 20%;
+}
+
+a.update-item {
+    font-size: 0.85rem;
+    margin-top: 0.625rem;
+    color: #c9bec1;
+}
+
+a.update-item:after {
+    content: "\f00c";
+    font-family: 'FontAwesome';
+    font-size: 0.8rem;
+    margin-left: 0.220rem;
+    transition: all 0.20s linear 0s;
+    -o-transition: all 0.20s linear 0s;
+    -ms-transition: all 0.20s linear 0s;
+    -moz-transition: all 0.20s linear 0s;
+    -webkit-transition: all 0.20s linear 0s;
+}
+a.update-item:hover {
+    color: #28a745!important;
+}
+/*end custom  css*/

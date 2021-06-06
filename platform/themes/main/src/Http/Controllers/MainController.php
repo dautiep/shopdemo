@@ -30,7 +30,7 @@ class MainController extends PublicController
     {
         $slug = $slugRepository->getFirstBy(['key' => 'trang-chu', 'reference_type' => Page::class]);
         $data['page'] = $pageRepository->getFirstBy(['id' => $slug->reference_id, 'status' => BaseStatusEnum::PUBLISHED]);
-        $data[]= '';
+        $data[] = '';
         $data['productFeature'] = get_product_featured();
 
         $slugCategorySkincare = $slugRepository->getFirstBy(['key' => 'cham-soc-da', 'reference_type' => ProductCategory::class]);

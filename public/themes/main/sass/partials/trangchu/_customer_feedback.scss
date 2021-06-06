@@ -4,13 +4,16 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
     background-color: black;
+    &-block {
+        background-color: black !important;
+    }
     &__content {
         &-title {
             padding-top: 2rem;
             text-align: center;
             &--header {
                 font-family: $ROBOTO-BOLD;
-                color: white;
+                color: #cf9963;
                 @include fontSize($FONT-SIZE-BOLD);
                 @include maxWidth(991) {
                     @include fontSize($FONT-SIZE-MEDIUM);
@@ -18,7 +21,7 @@
             }
             &--listen {
                 padding-top: 1rem;
-                color: white;
+                color: black;
                 padding-bottom: 1rem;
             }
         }

@@ -53,9 +53,9 @@ class OrderTable extends TableAbstract
             ->editColumn('checkbox', function ($item) {
                 return $this->getCheckbox($item->id);
             })
-            ->editColumn('status', function ($item) {
-                return $item->status->toHtml();
-            })
+            // ->editColumn('status', function ($item) {
+            //     return $item->status->toHtml();
+            // })
             ->editColumn('payment_status', function ($item) {
                 return $item->payment->status->label() ? $item->payment->status->toHtml() : '&mdash;';
             })

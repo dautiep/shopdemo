@@ -1,0 +1,9 @@
+{
+    "name": "Cart",
+    "namespace": "Platform\\Cart\\",
+    "provider": "Platform\\Cart\\Providers\\CartServiceProvider",
+    "author": "N/A",
+    "url": "N/A",
+    "version": "1.0",
+    "description": "The description for module cart"
+}

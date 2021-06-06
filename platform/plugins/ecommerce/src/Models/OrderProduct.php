@@ -24,6 +24,7 @@ class OrderProduct extends BaseModel
         'weight',
         'price',
         'tax_amount',
+        'qty',
         'options',
         'restock_quantity',
     ];
@@ -49,5 +50,10 @@ class OrderProduct extends BaseModel
     public function product()
     {
         return $this->belongsTo(Product::class)->withDefault();
+    }
+
+    public static function saveOrderProduct($data)
+    {
+        return OrderProduct::insert($data);
     }
 }

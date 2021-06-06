@@ -1,5 +1,5 @@
 <div class="customerfeedback ">
-    <div class="container">
+    <div class="container customerfeedback-block">
         <div class="customerfeedback__content">
             <div class="customerfeedback__content-title">
                 @if (has_field($page, 'content_brand'))

@@ -5,8 +5,7 @@
         <div class="margin">
             <!-- product image -->
             <div class="s-12 m-4 l-5 margin-bottom">
-
-                    <img id="expandedImg" style="width:100%" src="{{ Theme::asset()->url('img/products/son-kem-li.jpg') }}" />
+                    <img id="expandedImg" style="width:100%" src="{{ RvMedia::getImageUrl($product->image) }}" />
                     <!-- Close the image -->
                     <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
 
@@ -17,20 +16,12 @@
                     <div id="imgtext"></div>
 
                 <div class="row">
-                    <div class="column">
-                        <img src="{{ RvMedia::getImageUrl($product->image)  }}" alt="Nature" onclick="myFunction(this);">
-                    </div>
-                    <div class="column">
-                        <img src="{{ RvMedia::getImageUrl($product->image)  }}" alt="Snow" onclick="myFunction(this);">
-                    </div>
-                    <div class="column">
-                        <img src="{{ Theme::asset()->url('img/products/son-kem-li.jpg') }}" alt="Mountains" onclick="myFunction(this);">
-                    </div>
-                    <div class="column">
-                        <img src="{{ Theme::asset()->url('img/products/son-kem-li.jpg') }}" onclick="myFunction(this);">
-                    </div>
+                    @foreach ($product->images as $image)
+                        <div class="column">
+                            <img style="height: 100px;" src="{{ RvMedia::getImageUrl($image)  }}" alt="Nature" onclick="myFunction(this);">
+                        </div>
+                    @endforeach
                 </div>
-                <!-- <img src="{{ RvMedia::getImageUrl($product->image)  }}" alt="{{ $product->name }}"> -->
             </div>
 
             <!-- product detail -->
@@ -39,17 +30,23 @@
                 <p class="text-justify">
                     {!! $product->description !!}
                 </p>
+                <form action="{{ route('cart.add') }}" method="POST">
+                    @csrf
+                    <div class="fullwidth margin-bottom-40">
+                        <div class="numbers-row">
+                            <label>Số lượng:</label>
+                            <input type="number" name="quantityProduct" class="quantity" id="french-hens" value="1">
+                            <input type="number" id="total-store" value="{{ $product->quantity }}" hidden>
+                            <div class="inc quantity-btn">+</div>
+                            <div class="dec quantity-btn">-</div>
+                        </div>
+                        <input type="text" name="productId" value="{{$product->id}}" hidden>
 
-                <div class="fullwidth margin-bottom-40">
-                    <div class="numbers-row">
-                        <label>Số lượng:</label>
-                        <input type="number" name="quanity" class="quantity" id="french-hens" value="1">
                     </div>
-
-                </div>
-                <div class="s-12 m-6 l-4">
-                    <a href="" class="button">Thêm vào giỏ hàng</a>
-                </div>
+                    <div class="s-12 m-6 l-4">
+                        <button type="submit" class="button add-product">Thêm vào giỏ hàng</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

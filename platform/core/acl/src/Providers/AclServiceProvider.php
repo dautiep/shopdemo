@@ -22,6 +22,7 @@ use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Routing\Events\RouteMatched;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Platform\Ecommerce\Http\Middleware\RedirectIfNotCustomer;
 
 class AclServiceProvider extends ServiceProvider
 {
@@ -35,6 +36,7 @@ class AclServiceProvider extends ServiceProvider
         $router = $this->app['router'];
 
         $router->aliasMiddleware('auth', Authenticate::class);
+        $router->aliasMiddleware('customer', RedirectIfNotCustomer::class);
         $router->aliasMiddleware('guest', RedirectIfAuthenticated::class);
 
         $this->app->bind(UserInterface::class, function () {

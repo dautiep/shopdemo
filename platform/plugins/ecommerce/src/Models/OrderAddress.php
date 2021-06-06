@@ -49,4 +49,20 @@ class OrderAddress extends BaseModel
     {
         return (string)(new Avatar)->create($this->name)->toBase64();
     }
+
+    public static function saveOrderAddress($input)
+    {
+        $order =  Order::where('id', $input['orderId'])->first();
+        if (!empty($order)) {
+            $orderAddress = new OrderAddress();
+            $orderAddress->name = auth('customer')->user()->name;
+            $orderAddress->phone = auth('customer')->user()->phone;
+            $orderAddress->email = auth('customer')->user()->email;
+            $orderAddress->address = $input['addressOrder'];
+            $orderAddress->city = $input['cityOrder'];
+            $orderAddress->order_id = $order->id;
+            $orderAddress->save();
+            return $orderAddress;
+        }
+    }
 }

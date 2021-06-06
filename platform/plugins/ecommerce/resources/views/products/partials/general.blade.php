@@ -16,7 +16,7 @@
         <div class="form-group">
             <label class="text-title-field">{{ trans('plugins/ecommerce::products.form.price') }}</label>
             <div class="next-input--stylized">
-                <span class="next-input-add-on next-input__add-on--before">{{ get_application_currency()->symbol }}</span>
+                <span class="next-input-add-on next-input__add-on--before">VNĐ</span>
                 <input name="price"
                        class="next-input input-mask-number regular-price next-input--invisible"
                        step="any"
@@ -35,7 +35,7 @@
                    class="turn-off-schedule @if (old('sale_type', $product ? $product->sale_type : ($originalProduct->sale_type ?? 0)) == 0) hidden @endif">{{ trans('plugins/ecommerce::products.form.cancel') }}</a>
             </label>
             <div class="next-input--stylized">
-                <span class="next-input-add-on next-input__add-on--before">{{ get_application_currency()->symbol }}</span>
+                <span class="next-input-add-on next-input__add-on--before">VNĐ</span>
                 <input name="sale_price"
                        class="next-input input-mask-number sale-price next-input--invisible"
                        value="{{ old('sale_price', $product ? $product->sale_price : ($originalProduct->sale_price ?? null)) }}"
@@ -45,7 +45,7 @@
     </div>
     <div class="col-md-6 scheduled-time @if (old('sale_type', $product ? $product->sale_type : ($originalProduct->sale_type ?? 0)) == 0) hidden @endif">
         <div class="form-group">
-            <label class="text-title-field">{{ trans('plugins/ecommerce::products.form.date.start') }}</label>
+            <label class="text-title-field">From Date</label>
             <input name="start_date"
                    class="next-input form-date-time"
                    value="{{ old('start_date', $product ? $product->start_date : ($originalProduct->start_date ?? null)) }}"
@@ -54,7 +54,7 @@
     </div>
     <div class="col-md-6 scheduled-time @if (old('sale_type', $product ? $product->sale_type : ($originalProduct->sale_type ?? 0)) == 0) hidden @endif">
         <div class="form-group">
-            <label class="text-title-field">{{ trans('plugins/ecommerce::products.form.date.end') }}</label>
+            <label class="text-title-field">To Date</label>
             <input name="end_date"
                    class="next-input form-date-time"
                    value="{{ old('end_date', $product ? $product->end_date : ($originalProduct->end_date ?? null)) }}"

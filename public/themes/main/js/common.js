@@ -90,7 +90,8 @@ let App = {
 
         });
 
-    }
+    },
+
 }
 
 
@@ -98,3 +99,88 @@ $(document).ready(function() {
     App.swiperFeedbackCustomer()
     App.submitFormContact()
 })
+
+function updateCart(cart_detail_id, product_cart_id)
+{
+    var data = {
+        cart_detail_id : cart_detail_id,
+        product_cart_id : product_cart_id,
+        cart_detail_quantity : $('[data-cart-detail-' + cart_detail_id + '=' + cart_detail_id + ']').val()
+    };
+    $.ajax({
+        url: "/cart/update-cart",
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        type: 'POST',
+        data: data,
+        success: function(response) {
+            console.log(response.error)
+            if (response.success) {
+                    Swal.fire({
+                    title: 'Thành công',
+                    text: "Cập nhật thành công",
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Xác nhận'
+                }).then((result) => {
+                    if (result.value) {
+                        window.location.reload();
+                    }
+                })
+            } else {
+                toastr.error('Có lỗi xảy ra vui lòng thử lại sau.')
+            }
+        },
+        error: function(response) {
+            toastr.error('Có lỗi xảy ra vui lòng thử lại sau.')
+        }
+    });
+}
+
+function removeCart(cart_detail_id)
+{
+    var data = {
+        detail_cart_id : $('.cart-' + cart_detail_id).data('cart-detail-'+ cart_detail_id)
+    };
+    Swal.fire({
+        title: 'Bạn có chắc muốn xóa sản phẩm này không?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Xác nhận',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Hủy'
+    }).then((result) => {
+        if (result.value) {
+            $('.loader').show();
+            $.ajax({
+                url: "cart/remove-detail-cart",
+                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                type: 'POST',
+                data: data,
+                success: function(response) {
+                    $('.loader').hide();
+                    if (response.success) {
+                            Swal.fire({
+                            title: 'Thành công',
+                            text: "Đã xóa sản phẩm",
+                            icon: 'success',
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'Xác nhận'
+                        }).then((result) => {
+                            if (result.value) {
+                                window.location.reload();
+                            }
+                        })
+                    } else {
+                        toastr.error('Có lỗi xảy ra vui lòng thử lại sau.')
+                    }
+                    },
+                    error: function(response) {
+                        toastr.error('Có lỗi xảy ra vui lòng thử lại sau.')
+                    }
+                });
+            }
+    })
+}
+
+

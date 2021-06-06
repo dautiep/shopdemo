@@ -47,6 +47,7 @@ return [
             $theme->asset()->add('fontawesome2', 'https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css'); //fontawesome
 
             $theme->asset()->container('after_header')->usePath()->add('myresponsee', 'templates/css/myresponsee.css');
+            $theme->asset()->container('after_header')->usePath()->add('toastr', 'templates/toastr/css/toastr.min.css');
             $theme->asset()->container('after_header')->usePath()->add('style1', 'templates/css/style.css');
             $theme->asset()->container('after_header')->usePath()->add('common', 'css/common.css');
             $theme->asset()->container('after_header')->usePath()->add('carousel', 'templates/css/owl-carousel/owl.carousel.css');
@@ -76,6 +77,8 @@ return [
             $theme->asset()->container('footer')->usePath()->add('respond', 'templates/js/respond.js'); //js
             $theme->asset()->container('footer')->add('swiper_js', 'https://unpkg.com/swiper/swiper-bundle.min.js');
             $theme->asset()->container('footer')->usePath()->add('responsee', 'templates/js/responsee.js'); //js
+            $theme->asset()->container('footer')->usePath()->add('toastr', 'templates/toastr/js/toastr.min.js'); //js
+            $theme->asset()->container('footer')->add('sweetalert2', 'https://cdn.jsdelivr.net/npm/sweetalert2@11'); //js
 
             // <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
             // <script type="text/javascript" src="js/jquery-ui.min.js"></script>

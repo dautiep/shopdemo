@@ -22,9 +22,8 @@ class RedirectIfNotCustomer
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             }
-            return redirect()->guest(route('customer.login'));
+            return redirect()->guest(route('guest.login'));
         }
-
         return $next($request);
     }
 }
