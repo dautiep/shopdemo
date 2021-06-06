@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Platform\Cart\Models\Cart;
 use Platform\Ecommerce\Models\Customer;
 use Platform\Theme\Http\Controllers\PublicController;
-use Theme;
 use Theme\Main\Http\Requests\RegisterRequest;
+use Theme;
 
 class LoginController extends PublicController
 {

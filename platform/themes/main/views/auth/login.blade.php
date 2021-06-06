@@ -5,7 +5,7 @@
         </div>
         <div class="card-body">
             <form class="form" action="{{ route('login.post') }}" method="POST">
-                @csrf
+                {{ csrf_field() }}
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
                     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

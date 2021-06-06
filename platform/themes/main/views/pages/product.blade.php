@@ -1,4 +1,4 @@
-<<!-- PAGE CONTENT START -->
+<!-- PAGE CONTENT START -->
 <div class="section">
 	<!-- heading and description -->
 	<div class="line">

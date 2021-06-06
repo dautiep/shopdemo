@@ -52,9 +52,8 @@
                                         <i class="fas fa-shopping-cart"></i>
                                     </a>
                                 </li>
-                                <li><a href="#">{!! theme_option('gmail') !!}</a></li>
-                                <li><a href="#">{!! theme_option('phone_number') !!}</a></li>
                                 @if (!empty(auth('customer')->user()))
+                                    <li><a href="javascript:void(0)">Xin chào {{ auth('customer')->user()->name }}</a></li>
                                     <li><a  href="{{ route('customer.logout') }}">Đăng xuất</a></li>
                                 @else
                                     <li><a href="{{ route('guest.login') }}">Đăng nhập</a></li>

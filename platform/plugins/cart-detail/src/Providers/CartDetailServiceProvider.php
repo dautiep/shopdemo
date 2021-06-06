@@ -43,8 +43,8 @@ class CartDetailServiceProvider extends ServiceProvider
                 'id'          => 'cms-plugins-cart-detail',
                 'priority'    => 5,
                 'parent_id'   => null,
-                'name'        => 'plugins/cart-detail::cart-detail.name',
-                'icon'        => 'fa fa-list',
+                'name'        => 'Chi tiết giỏ hàng',
+                'icon'        => 'fas fa-luggage-cart',
                 'url'         => route('cart-detail.index'),
                 'permissions' => ['cart-detail.index'],
             ]);
