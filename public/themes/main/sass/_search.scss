@@ -1,0 +1,28 @@
+/* SEARCH FILTER, CHSinc.com, Author:John Smith, 2015 */
+.news-filter-search{
+    height: 32px;
+    width: 100%;
+    max-width: 390px;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    z-index: 100;
+    vertical-align: bottom;
+    // margin-bottom: 4rem;
+    .form-control{
+        font-family: proxima;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        -ms-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+        padding: 10px 70px;
+    }
+    .input-state-action{
+
+    }
+   
+}
+
+
+

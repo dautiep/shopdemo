@@ -3,20 +3,22 @@
 	<!-- heading and description -->
 	<div class="line">
 	  <div class="margin">
-		<div class="fullwidth">
+		<div class="fullwidth" style="text-align: center;">
 		  <h1 class="text-center">Sản phẩm chăm sóc sắc đẹp của bạn</h1>
 		  <p class="text-center">Luôn cập nhật những mặt hàng tốt nhất</p>
 		  <hr class="break-small break-center">
+          @includeIf('theme.main::partials.search')
+          @includeIf('theme.main::partials.fillerprice')
 		</div>
 	  </div>
 	</div>
 
     <!-- products -->
-	<div class="line">
-		<div class="margin">
+	<div class="line ">
+		<div class="margin ">
             @foreach ($products as $product)
                 <!-- product 1 -->
-                <div class="s-12 m-4 l-3 margin-bottom-30">
+                <div class=" s-12 m-4 l-3 margin-bottom-30">
                     <div class="margin">
                         <div class="fullwidth">
                             <figure class="imghvr-reveal-down">
@@ -41,6 +43,7 @@
             @endforeach
 		</div>
 	</div>
+    
     <div class="detail-pagination">
         {{ $products->links('theme.main::partials.pagination') }}
     </div>
