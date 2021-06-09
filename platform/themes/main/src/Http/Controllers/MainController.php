@@ -110,7 +110,7 @@ class MainController extends PublicController
     //Get product:
     public function getProduct( Request $request)
     {
-        $data['products'] = get_all_products(true, 14);
+        $data['products'] = get_all_products(true, 9);
         return Theme::scope('pages.product',$data)->render();
     }
 
