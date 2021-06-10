@@ -206,4 +206,22 @@ class MainController extends PublicController
         return Theme::scope('pages.product', $data)->render();
     }
 
+    public function postContact(ContactRequest $request)
+    {
+        $input = $request->all();
+        $saveContact = Contact::saveContact($input);
+        if (!$saveContact) {
+            $notification = array(
+                'message' => 'Gửi thông tin thất bại',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }
+        $notification = array(
+            'message' => 'Cảm ơn bạn đã liên hệ với chúng tôi',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+
 }

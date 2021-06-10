@@ -1117,7 +1117,7 @@ display:none;
 /* ------------------------------- */
 /* custom form */
 .customform input, .customform textarea, .customform select .customform button {
-  margin-bottom:50px;
+  /* margin-bottom:50px; */
   color:#1d191a;
   background:none;
   border:0px;

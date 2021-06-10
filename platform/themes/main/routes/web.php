@@ -35,6 +35,7 @@ Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'web
 
         //Get Contact:
         Route::get('/lien-he', 'MainController@getContact')->name('public.get-contact');
+        Route::post('/lien-he', "MainController@postContact")->name('contact.post');
         Route::post('/lien-he-shop', 'MainController@contact')->name('post-contact');
 
         Route::prefix('san-pham')->group(function() {

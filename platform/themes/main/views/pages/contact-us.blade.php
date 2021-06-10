@@ -4,19 +4,19 @@
 		<div class="margin">
 			<div class="s-12 m-12 l-4 margin-bottom-30">
 				<div class="fullwidth margin-bottom-40">
-					<h2>Reach Us</h2>
+					<h2>Thông tin liên lạc</h2>
 					<hr class="break-small">
-					<p>Lorem ipsum dolor sit elit.</p>
+					<p>Bạn có thể liên hệ với chúng tôi qua:</p>
 				</div>
 				<div class="fullwidth margin-bottom-50">
 					<div class="float-left">
 						<i class="fa fa-home text-white background-primary icon-square-small"></i>
 					</div>
 					<div class="margin-left-100">
-						<h4 class="text-primary">Address</h4>
+						<h4 class="text-primary">Địa chỉ</h4>
 						<p>
-						Xyz Street 7<br />
-						P.O.Box: 12345
+						Phường Tăng Nhơn Phú A, Quận 9<br />
+						Thanhg Phố Hồ Chí Minh
 						</p>
 					</div>
 				</div>
@@ -25,10 +25,10 @@
 						<i class="fa fa-phone icon-square-small"></i>
 					</div>
 					<div class="margin-left-100">
-						<h4 class="text-primary">Calls</h4>
+						<h4 class="text-primary">Điện thoại:</h4>
 						<p>
-						0000 1234 567 89<br />
-						0000 1234 567 89
+						035 288 4156<br />
+						036 254 1816
 						</p>
 					</div>
 				</div>
@@ -39,8 +39,8 @@
 					<div class="margin-left-100">
 						<h4 class="text-primary">Emails</h4>
 						<p>
-						xyz@yourwebsite.com<br />
-						xyz@yourwebsite.com
+						thuhuong@gmail.com<br />
+						shopcosmetic@gamil.com
 						</p>
 					</div>
 				</div>
@@ -50,9 +50,9 @@
 			<div class="s-12 m-12 l-8">
 			    <div class="padding-m-s-left-50">
 				<div class="fullwidth margin-bottom-40">
-					<h2>Send Us a Line</h2>
+					<h2>Gửi thông tin liên lạc</h2>
 					<hr class="break-small">
-					<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+					<p>Vui lòng hoàn tất các thông tin dưới đây để gửi về chúng tôi</p>
 				</div>
                 {!! do_shortcode('[Contact-form][/Contact-form]') !!}
 			    </div>
