@@ -37,6 +37,7 @@
                             <div class="number-input">
                                 <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
                                 <input class="quantity cart-{{ $detail->id }}" min="0" name="quantity" data-cart-detail-{{ $detail->id  }}={{ $detail->id }} value="{{ $detail->quantity }}" type="number">
+                                <input type="text" data-quantity-product-{{ $detail->id }}={{ $detail->id }} value="{{ $detail->getProduct->quantity  }}" hidden>
                                 <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                             </div> <br>
                         </div>

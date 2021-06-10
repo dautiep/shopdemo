@@ -601,4 +601,9 @@ class Product extends BaseModel
             return $product;
         }
     }
+
+    public static function search($key)
+    {
+        return Product::where('name', "LIKE", "%".$key."%")->paginate(10);
+    }
 }

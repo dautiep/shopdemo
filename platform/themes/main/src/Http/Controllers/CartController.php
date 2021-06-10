@@ -62,9 +62,7 @@ class CartController extends PublicController
                 } else {
                     $saveDetailCart = CartDetail::updateDetailCart($dataDetailCart);
                 }
-                $updateQuantityProduct = Product::updateQuantity($dataDetailCart['quantityProduct'], $dataDetailCart['productId']);
-
-                if (!$saveDetailCart || !$updateQuantityProduct) {
+                if (!$saveDetailCart) {
                     $notification = array(
                         'message' => 'Thêm vào giỏ hàng thất bại! Vui lòng thử lại',
                         'alert-type' => 'error'
@@ -87,7 +85,7 @@ class CartController extends PublicController
         try {
             $input = $request->all();
             $updateCartDetail = CartDetail::updateQuantity($input);
-            if (!$updateCartDetail) {
+             if (!$updateCartDetail) {
                 return \Response::json(['error' => 'fail', 'message' => 'Cập nhật giỏ hàng thất bại!']);
             }
             return \Response::json(['success' => 'success', 'message' => 'Cập nhật giỏ hàng thành công!']);
@@ -146,6 +144,7 @@ class CartController extends PublicController
                     'product_id' => $detail->getProduct->id,
                     'product_name' => $detail->getProduct->name
                 ];
+                $updateQuantityPproduct = Product::updateQuantity($detail->quantity, $detail->getProduct->id);
             }
             $saveOrderProduct = OrderProduct::saveOrderProduct($dataOrderProduct);
             $data['orderAddress'] = [

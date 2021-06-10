@@ -179,9 +179,9 @@
                 <!-- blog search -->
                 <div class="hide-s hide-m">
                     <div class="fullwidth margin-bottom-20">
-                        <form class="blog-search">
+                        <form action="{{ route('blog.search') }}" class="blog-search">
                             <div class="s-9 m-9 l-9">
-                                <input type="search" class="blog-search" placeholder="Tìm kiếm bài viết">
+                                <input name="q" type="search" class="blog-search" placeholder="Tìm kiếm bài viết">
                             </div>
                             <div class="s-3 m-3 l-3">
                                 <input type="submit" value="Tìm kiếm">

@@ -39,12 +39,14 @@ Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'web
 
         Route::prefix('san-pham')->group(function() {
              Route::get('/', 'MainController@getProduct')->name('product.index');
+             Route::get('tim-kiem', 'MainController@searchProduct')->name('product.search');
              Route::get('/{slug}', 'MainController@getProductCategory')->name('product.category');
              Route::get('{slug}/{slugProduct}', 'MainController@getProductDetail')->name('product.detail');
         });
 
         Route::prefix('tin-tuc')->group(function(){
             Route::get('/', 'MainController@getBlog')->name('get_reset');
+            Route::get('tim-kiem', 'MainController@searchBlog')->name('blog.search');
             Route::get('{slug}', 'MainController@getBlogCategory')->name('blog.category');
             Route::get('{slug}/{slugPost}', 'MainController@getBlogDetail')->name('blog.detail');
         });

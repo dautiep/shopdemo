@@ -111,6 +111,7 @@ class MainController extends PublicController
     public function getProduct( Request $request)
     {
         $data['products'] = get_all_products(true, 9);
+        $data['categories'] = get_product_categories();
         return Theme::scope('pages.product',$data)->render();
     }
 
@@ -165,7 +166,8 @@ class MainController extends PublicController
             abort('404');
         }
         $data['category'] = get_category_product_by_id($slug->reference_id);
-        $data['products'] = get_products_by_category($data['category']->id, 14, 0);
+        $data['products'] = get_products_by_category($data['category']->id, 9, 0);
+        $data['categories'] = get_product_categories();
         return Theme::scope('pages.product',$data)->render();
     }
 
@@ -182,4 +184,26 @@ class MainController extends PublicController
         // dd(get_all_categories());
         return Theme::scope('pages.blog-post', $data)->render();
     }
+
+    public function searchBlog(Request $request)
+    {
+        $data['key'] = $request['q'];
+        $starttime = microtime(true);
+        $data['result'] = Post::search($data['key']);
+        $endtime = microtime(true);
+        $data['time'] = round($endtime - $starttime, 5);
+        return Theme::scope('pages.search', $data)->render();
+    }
+
+    public function searchProduct(Request $request)
+    {
+        $data['key'] = $request['q'];
+        $starttime = microtime(true);
+        $data['result'] = Product::search($data['key']);
+        $endtime = microtime(true);
+        $data['time'] = round($endtime - $starttime, 5);
+        $data['categories'] = get_product_categories();
+        return Theme::scope('pages.product', $data)->render();
+    }
+
 }

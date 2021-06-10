@@ -45,10 +45,7 @@ jQuery(document).ready(function($) {
         items: 4,
         itemsDesktop: [768,3],
         itemsDesktopSmall: [480,1]
-  });
-
-    //product quantity
-    // $(".numbers-row").append('');
+    });
 
     $(".quantity-btn").on("click", function () {
         var quantity = $('#total-store').val();

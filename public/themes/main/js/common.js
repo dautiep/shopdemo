@@ -105,35 +105,46 @@ function updateCart(cart_detail_id, product_cart_id)
     var data = {
         cart_detail_id : cart_detail_id,
         product_cart_id : product_cart_id,
-        cart_detail_quantity : $('[data-cart-detail-' + cart_detail_id + '=' + cart_detail_id + ']').val()
+        cart_detail_quantity : $('[data-cart-detail-' + cart_detail_id + '=' + cart_detail_id + ']').val(),
+        product_quantity : $('[data-quantity-product-' + cart_detail_id + '=' + cart_detail_id + ']').val()
     };
-    $.ajax({
-        url: "/cart/update-cart",
-        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        type: 'POST',
-        data: data,
-        success: function(response) {
-            console.log(response.error)
-            if (response.success) {
-                    Swal.fire({
-                    title: 'Thành công',
-                    text: "Cập nhật thành công",
-                    icon: 'success',
-                    confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'Xác nhận'
-                }).then((result) => {
-                    if (result.value) {
-                        window.location.reload();
-                    }
-                })
-            } else {
+
+    if (parseInt(data['cart_detail_quantity']) > parseInt(data['product_quantity'])) {
+        console.log(1)
+        Swal.fire({
+            icon: 'warning',
+            title: 'Chú ý...',
+            text: 'Số lượng sản phẩm vượt quá số lượng cho phép!'
+        });
+    } else {
+        console.log(2)
+        $.ajax({
+            url: "/cart/update-cart",
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            type: 'POST',
+            data: data,
+            success: function(response) {
+                if (response.success) {
+                        Swal.fire({
+                        title: 'Thành công',
+                        text: "Cập nhật thành công",
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Xác nhận'
+                    }).then((result) => {
+                        if (result.value) {
+                            window.location.reload();
+                        }
+                    })
+                } else {
+                    toastr.error('Có lỗi xảy ra vui lòng thử lại sau.')
+                }
+            },
+            error: function(response) {
                 toastr.error('Có lỗi xảy ra vui lòng thử lại sau.')
             }
-        },
-        error: function(response) {
-            toastr.error('Có lỗi xảy ra vui lòng thử lại sau.')
-        }
-    });
+        });
+    }
 }
 
 function removeCart(cart_detail_id)
