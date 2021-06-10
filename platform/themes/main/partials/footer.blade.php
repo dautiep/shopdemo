@@ -90,10 +90,18 @@
 							</div>
 							<!-- right -->
 							<div class="s-12 m-12 l-4 payment-methods">
-								<i class="fa fa-cc-visa fa-2x"></i>
-								<i class="fa fa-cc-mastercard fa-2x"></i>
-								<i class="fa fa-cc-paypal fa-2x"></i>
-								<i class="fa fa-credit-card fa-2x"></i>
+                                {{-- <div class="footer_item " > --}}
+                                    {{-- <a href="#" class="menu_link" title="" > FanPage </a> --}}
+                                
+                                    <div class="footer_SocialNetwork" >
+                                        <div class="fb-page" data-href="https://www.facebook.com/S&#x103;n-T&#xe2;y-108609077160950/" data-tabs="timeline"
+                                            data-width="300" data-height="100" data-small-header="false" data-adapt-container-width="true"
+                                            data-hide-cover="false" data-show-facepile="false">
+                                            <blockquote cite="https://www.facebook.com/S&#x103;n-T&#xe2;y-108609077160950/" class="fb-xfbml-parse-ignore"><a
+                                                    href="https://www.facebook.com/S&#x103;n-T&#xe2;y-108609077160950/">Săn Tây</a></blockquote>
+                                        </div>
+                                    </div>
+                                 {{-- </div> --}}
 							</div>
 						</div>
 					</div>
@@ -102,6 +110,32 @@
 		<!-- FOOTER END -->
         {!! Theme::footer() !!}
 	</div>
+      <!-- Messenger Plugin chat Code -->
+<div id="fb-root"></div>
+
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "108609077160950");
+  chatbox.setAttribute("attribution", "biz_inbox");
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v11.0'
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
     </body>
 </html>
 <script>
@@ -143,3 +177,5 @@
         }
     @endif
 </script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0" nonce="SfF8mM31"></script>

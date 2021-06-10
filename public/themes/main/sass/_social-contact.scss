@@ -1,0 +1,126 @@
+// .zalo-chat-widget {}
+
+// .sticky {
+//   position: fixed;
+//   top: 45%;
+//   transition: all 1s;
+//   font-family: $ROBOTO-BOLD;
+//   list-style: none;
+//   color: $white_color;
+//   z-index: 1;
+//   height: 100%;
+//   z-index: 10;
+//   @include fontSize(13);
+
+//   transform: translateY(-20%);
+//   left: 5px;
+
+//   &__list {
+//     margin-top: 5px;
+//     width: 40px;
+//     height: 40px;
+
+//     &:nth-child(1) {
+//       .sticky__list-link {
+//         background-color: #2b7df1;
+//       }
+//     }
+
+//     &:nth-child(2) {
+//       .sticky__list-link {
+//         background-color: #1b77f2;
+//       }
+//     }
+
+//     &:nth-child(3) {
+//       .sticky__list-link {
+//         background-color: #2ae0f2;
+//       }
+//     }
+
+//     &:nth-child(4) {
+//       .sticky__list-link {
+//         background-color: #fa620f;
+//       }
+//     }
+
+//     &:nth-child(5) {
+//       .sticky__list-link {
+//         background-color: #e49b0d;
+//       }
+//     }
+
+//     &-link {
+//       width: 100%;
+//       height: 100%;
+//       display: flex;
+//       text-align: center;
+//       background-color: $primary_color;
+//       position: relative;
+//       color: $white_color;
+//       border-radius: 50%;
+
+//       i.fab.fa-facebook-f.sticky__list-link--icon {
+//         left: 16px;
+//       }
+
+//       i.fas.fa-map-marker-alt.sticky__list-link--icon {
+//         left: 15px;
+//       }
+
+//       &:hover {
+//         color: whitesmoke;
+
+//         .sticky__list-link--hide {
+//           display: flex;
+//           align-items: center;
+//           opacity: 1;
+//           visibility: visible;
+//         }
+//       }
+
+//       &--icontext {
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         padding: unset;
+//         height: 40px;
+//         margin: unset;
+//         width: 40px;
+
+//       }
+
+//       &--icon {
+//         text-align: center;
+//         float: left;
+//         position: relative;
+//         top: 13px;
+//         left: 13px;
+
+//       }
+
+//       &--hide {
+//         float: left;
+//         display: flex;
+//         align-items: center;
+//         font-family: "Roboto-Regular";
+//         color: $white_color;
+//         padding-left: 15px;
+//         position: absolute;
+//         text-align: left;
+//         transition: all .5s linear;
+//         opacity: 0;
+//         visibility: hidden;
+
+//         width: max-content;
+//         min-width: unset;
+//         padding: 4px 15px;
+//         border-radius: 12px;
+//         background-color: #00000073;
+//         top: 50%;
+//         transform: translateY(-50%);
+//         left: 45px;
+//       }
+//     }
+//   }
+// }
