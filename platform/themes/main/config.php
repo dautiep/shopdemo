@@ -67,7 +67,7 @@ return [
             // $theme->asset()->container('footer')->usePath()->add('jquery', 'templates/js/jquery.min.js'); //js
             $theme->asset()->container('footer')->usePath()->add('jquery-3.1.1', 'templates/js/jquery-3.1.1.min.js');
             $theme->asset()->container('footer')->usePath()->add('jquery-1.8.3', 'templates/js/jquery-1.8.3.min.js');
-            $theme->asset()->container('footer')->usePath()->add('jquery-ui', 'templates/js/jquery-ui.min.js');
+            // $theme->asset()->container('footer')->usePath()->add('jquery-ui', 'templates/js/jquery-ui.min.js');
             $theme->asset()->container('footer')->usePath()->add('carousel', 'templates/js/owl-carousel/owl.carousel.js');
             $theme->asset()->container('footer')->usePath()->add('carousel1', 'templates/js/owl-carousel/owl.carousel.min.js');
             $theme->asset()->container('footer')->usePath()->add('custom', 'templates/js/custom.js'); //js
@@ -79,8 +79,8 @@ return [
             $theme->asset()->container('footer')->usePath()->add('responsee', 'templates/js/responsee.js'); //js
             $theme->asset()->container('footer')->usePath()->add('toastr', 'templates/toastr/js/toastr.min.js'); //js
             $theme->asset()->container('footer')->add('sweetalert2', 'https://cdn.jsdelivr.net/npm/sweetalert2@11'); //js
-           
-            $theme->asset()->container('footer')->add('ui',' https://code.jquery.com/ui/1.12.0/jquery-ui.min.js'); //js
+
+            // $theme->asset()->container('footer')->add('ui',' https://code.jquery.com/ui/1.12.0/jquery-ui.min.js'); //js
             $theme->asset()->container('footer')->add('tweenmax','https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js'); //js
             $theme->asset()->container('footer')->add('touch','https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js'); //js
 

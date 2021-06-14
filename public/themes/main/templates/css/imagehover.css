@@ -30,7 +30,7 @@
 }
 [class^='imghvr-'] figcaption,
 [class*=' imghvr-'] figcaption {
-  background: url(./img/trans.png);
+  background: url(../../img/trans.png);
   padding: 0px;
   position: absolute;
   top: 0;

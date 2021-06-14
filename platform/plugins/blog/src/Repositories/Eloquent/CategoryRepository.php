@@ -163,7 +163,8 @@ class CategoryRepository extends RepositoriesAbstract implements CategoryInterfa
 
         return $this->applyBeforeExecuteQuery($data)->get();
     }
-        /**
+
+    /**
      * {@inheritDoc}
      */
     public function getCategoryByPostId(int $postId)

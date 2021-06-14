@@ -23,4 +23,11 @@ interface TagInterface extends RepositoryInterface
      * @return array
      */
     public function getAllTags($active = true);
+
+    /**
+     * @param int $id
+     * @return mixed
+     */
+    public function getTagById($id);
+
 }

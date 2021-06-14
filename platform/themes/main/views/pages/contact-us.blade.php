@@ -16,7 +16,7 @@
 						<h4 class="text-primary">Địa chỉ</h4>
 						<p>
 						Phường Tăng Nhơn Phú A, Quận 9<br />
-						Thanhg Phố Hồ Chí Minh
+						Thành Phố Hồ Chí Minh
 						</p>
 					</div>
 				</div>

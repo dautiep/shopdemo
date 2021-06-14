@@ -5,6 +5,8 @@ namespace Platform\Ecommerce\Models;
 use Platform\Base\Models\BaseModel;
 use Platform\Base\Supports\Avatar;
 use Platform\Base\Supports\Helper;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Platform\Cart\Models\Province;
 
 class OrderAddress extends BaseModel
 {
@@ -64,5 +66,10 @@ class OrderAddress extends BaseModel
             $orderAddress->save();
             return $orderAddress;
         }
+    }
+
+    public function getProvince(): BelongsTo
+    {
+        return $this->belongsTo(Province::class, 'city', 'id');
     }
 }

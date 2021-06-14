@@ -80,26 +80,19 @@
 							<!-- left -->
 							<div class="s-12 m-12 l-8 footer-links">
 								<ul class="footer-bar-links">
-									<li><a href="">Contact Us</a></li>
-									<li><a href="">Faqs</a></li>
-									<li><a href="">Shipping</a></li>
-									<li><a href="">Return Policy</a></li>
-									<li><a href="">Order Tracking</a></li>
+									<li><a href="{{ route('public.index') }}">Trang Chủ</a></li>
+									<li><a href="{{ route('public.about-us') }}">Về Chúng Tôi</a></li>
+									<li><a href="{{ route('get_reset') }}">Tin Tức</a></li>
+									<li><a href="{{ route('product.index') }}">Sản Phẩm</a></li>
+									<li><a href="{{ route('public.get-contact') }}">Liên Hệ</a></li>
 								</ul>
-								<p>Cpyright &copy; 2016, Lovely Cosmetics Responsive HTML Template, Designed by <a href="https://themeforest.net/user/axactidea" target="_blank">Axact Idea</a></p>
+								<p>Copyright &copy; 2021, Lovely Cosmetic</p>
 							</div>
 							<!-- right -->
 							<div class="s-12 m-12 l-4 payment-methods">
                                 {{-- <div class="footer_item " > --}}
-                                    {{-- <a href="#" class="menu_link" title="" > FanPage </a> --}}
-                                
                                     <div class="footer_SocialNetwork" >
-                                        <div class="fb-page" data-href="https://www.facebook.com/S&#x103;n-T&#xe2;y-108609077160950/" data-tabs="timeline"
-                                            data-width="300" data-height="100" data-small-header="false" data-adapt-container-width="true"
-                                            data-hide-cover="false" data-show-facepile="false">
-                                            <blockquote cite="https://www.facebook.com/S&#x103;n-T&#xe2;y-108609077160950/" class="fb-xfbml-parse-ignore"><a
-                                                    href="https://www.facebook.com/S&#x103;n-T&#xe2;y-108609077160950/">Săn Tây</a></blockquote>
-                                        </div>
+                                        <div class="fb-page" data-href="https://www.facebook.com/Blog-Everyday-325198725591021/" data-tabs="timeline" data-width="" data-height="70px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/Blog-Everyday-325198725591021/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Blog-Everyday-325198725591021/">Blog Everyday</a></blockquote></div>
                                     </div>
                                  {{-- </div> --}}
 							</div>
@@ -110,8 +103,6 @@
 		<!-- FOOTER END -->
         {!! Theme::footer() !!}
 	</div>
-      <!-- Messenger Plugin chat Code -->
-<div id="fb-root"></div>
 
 <!-- Your Plugin chat code -->
 <div id="fb-customer-chat" class="fb-customerchat">
@@ -119,7 +110,7 @@
 
 <script>
   var chatbox = document.getElementById('fb-customer-chat');
-  chatbox.setAttribute("page_id", "108609077160950");
+  chatbox.setAttribute("page_id", "325198725591021");
   chatbox.setAttribute("attribution", "biz_inbox");
   window.fbAsyncInit = function() {
     FB.init({
@@ -178,4 +169,5 @@
     @endif
 </script>
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0" nonce="SfF8mM31"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0" nonce="NQ14dUiC"></script>
+

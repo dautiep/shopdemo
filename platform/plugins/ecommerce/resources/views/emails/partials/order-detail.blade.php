@@ -2,7 +2,7 @@
     <table>
         <tr>
             <th style="text-align: left">
-                {{ trans('plugins/ecommerce::products.form.product') }}
+                Sản phẩm
             </th>
             <th style="text-align: left">
                 {{ trans('plugins/ecommerce::products.form.price') }}
@@ -11,7 +11,7 @@
                 {{ trans('plugins/ecommerce::products.form.quantity') }}
             </th>
             <th style="text-align: left">
-                {{ trans('plugins/ecommerce::products.form.total') }}
+                Thành tiền
             </th>
         </tr>
 
@@ -75,14 +75,14 @@
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>
-                {{ trans('plugins/ecommerce::products.form.sub_total') }}
+                Tổng tiền:
             </td>
             <td>
                 {{ format_price($order->sub_total) }}
             </td>
         </tr>
 
-        <tr>
+        {{-- <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>{{ trans('plugins/ecommerce::products.form.shipping_fee') }}
@@ -90,9 +90,9 @@
             <td>
                 {{ format_price($order->shipping_amount) }}
             </td>
-        </tr>
+        </tr> --}}
 
-        @if (EcommerceHelper::isTaxEnabled())
+        {{-- @if (EcommerceHelper::isTaxEnabled())
             <tr>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -102,9 +102,9 @@
                     {{ format_price($order->tax_amount) }}
                 </td>
             </tr>
-        @endif
+        @endif --}}
 
-        <tr>
+        {{-- <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>{{ trans('plugins/ecommerce::products.form.discount') }}
@@ -112,9 +112,9 @@
             <td>
                 {{ format_price($order->discount_amount) }}
             </td>
-        </tr>
+        </tr> --}}
 
-        <tr>
+        {{-- <tr>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
 
@@ -123,7 +123,7 @@
             <td>
                 {{ format_price($order->amount) }}
             </td>
-        </tr>
+        </tr> --}}
     </table><br>
 </div>
 

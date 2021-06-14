@@ -7,6 +7,7 @@ use Platform\Payment\Enums\PaymentStatusEnum;
 use Platform\Table\Abstracts\TableAbstract;
 use Html;
 use Illuminate\Contracts\Routing\UrlGenerator;
+use Platform\Ecommerce\Enums\OrderStatusEnum;
 use Yajra\DataTables\DataTables;
 
 class TopSellingProductsTable extends TableAbstract
@@ -44,33 +45,32 @@ class TopSellingProductsTable extends TableAbstract
     {
         return $this->table
             ->eloquent($this->query())
-            ->editColumn('id', function ($item) {
-                if (!$item->is_variation) {
-                    return $item->id;
-                }
-
-                return $item->original_product->id;
+            ->editColumn('product_id', function ($item) {
+                return $item->product_id;
             })
-            ->editColumn('name', function ($item) {
-                if (!$item->is_variation) {
-                    return Html::link($item->url, $item->name, ['target' => '_blank']);
-                }
-
-                $attributeText = '';
-                $attributes = get_product_attributes($item->id);
-                if (!empty($attributes)) {
-                    $attributeText .= ' (';
-                    foreach ($attributes as $index => $attribute) {
-                        $attributeText .= $attribute->attribute_set_title . ': ' . $attribute->title;
-                        if ($index < count($attributes) - 1) {
-                            $attributeText .= ', ';
-                        }
-                    }
-                    $attributeText .= ')';
-                }
-
-                return Html::link($item->original_product->url, $item->original_product->name, ['target' => '_blank'])->toHtml() . Html::tag('small', $attributeText);
+            ->editColumn('qty', function ($item) {
+                return $item->total;
             })
+            // ->editColumn('name', function ($item) {
+            //     if (!$item->is_variation) {
+            //         return Html::link($item->url, $item->name, ['target' => '_blank']);
+            //     }
+
+            //     $attributeText = '';
+            //     $attributes = get_product_attributes($item->id);
+            //     if (!empty($attributes)) {
+            //         $attributeText .= ' (';
+            //         foreach ($attributes as $index => $attribute) {
+            //             $attributeText .= $attribute->attribute_set_title . ': ' . $attribute->title;
+            //             if ($index < count($attributes) - 1) {
+            //                 $attributeText .= ', ';
+            //             }
+            //         }
+            //         $attributeText .= ')';
+            //     }
+
+            //     return Html::link($item->original_product->url, $item->original_product->name, ['target' => '_blank'])->toHtml() . Html::tag('small', $attributeText);
+            // })
             ->escapeColumns([])
             ->make(true);
     }
@@ -84,19 +84,15 @@ class TopSellingProductsTable extends TableAbstract
             ->getModel()
             ->join('ec_order_product', 'ec_products.id', '=', 'ec_order_product.product_id')
             ->join('ec_orders', 'ec_orders.id', '=', 'ec_order_product.order_id')
-            ->join('payments', 'payments.order_id', '=', 'ec_orders.id')
-            ->where('payments.status', PaymentStatusEnum::COMPLETED)
-
+            ->where('ec_orders.status', OrderStatusEnum::COMPLETED)
             ->whereDate('ec_orders.created_at', '>=', now()->startOfMonth()->toDateString())
             ->whereDate('ec_orders.created_at', '<=', now()->endOfMonth()->toDateString())
-
             ->select([
-                'ec_products.id',
-                'ec_products.is_variation',
-                'ec_products.name',
-                'ec_order_product.qty',
+                'ec_order_product.product_id',
+                'ec_order_product.product_name',
+                \DB::raw("SUM(ec_order_product.qty) as total"),
             ])
-            ->orderBy('ec_order_product.qty', 'DESC');
+            ->groupBy(['ec_order_product.product_id', 'ec_order_product.product_name']);
 
         return $this->applyScopes($query);
     }
@@ -107,25 +103,28 @@ class TopSellingProductsTable extends TableAbstract
     public function columns()
     {
         return [
-            'id'   => [
-                'name'      => 'ec_products.id',
-                'title'     => trans('plugins/ecommerce::order.product_id'),
+            'product_id'   => [
+                'name'      => 'ec_order_product.product_id',
+                'title'     => 'Mã sản phẩm',
                 'width'     => '80px',
                 'orderable' => false,
                 'class'     => 'no-sort text-center',
             ],
-            'name' => [
-                'name'      => 'ec_products.name',
-                'title'     => trans('plugins/ecommerce::reports.product_name'),
+
+            'product_name'          => [
+                'name'      => 'ec_order_product.product_name',
+                'title'     => 'Tên sản phẩm',
                 'orderable' => false,
                 'class'     => 'text-left',
+                'width'     => '250px',
             ],
-            'qty'          => [
+
+            'qty' => [
                 'name'      => 'ec_order_product.qty',
-                'title'     => trans('plugins/ecommerce::reports.quantity'),
+                'title'     => 'Số lượng',
                 'orderable' => false,
                 'class'     => 'text-center',
-                'width'     => '60px',
+                'width'     => '80px',
             ],
         ];
     }

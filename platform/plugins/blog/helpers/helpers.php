@@ -184,6 +184,17 @@ if (!function_exists('get_category_by_id')) {
     }
 }
 
+if (!function_exists('get_tag_by_id')) {
+    /**
+     * @param integer $id
+     * @return \Platform\Base\Models\BaseModel
+     */
+    function get_tag_by_id($id)
+    {
+        return app(TagInterface::class)->getTagById($id);
+    }
+}
+
 if (!function_exists('get_categories')) {
     /**
      * @param array $args

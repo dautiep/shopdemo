@@ -12,7 +12,7 @@
         <div>{{ $address->address }}</div>
     @endif
     @if ($address->city)
-        <div>{{ $address->city }}</div>
+        <div>{{ $address->getProvince->ten_tinh }}</div>
     @endif
     @if ($address->state)
         <div>{{ $address->state }}</div>

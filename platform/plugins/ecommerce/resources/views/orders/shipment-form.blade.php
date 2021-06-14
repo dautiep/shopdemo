@@ -1,3 +1,4 @@
+
 <form class="shipment-create-panel" action="{{ route('orders.create-shipment', $order->id) }}">
     <div class="pd-all-20 pt10">
         <div class="flexbox-grid-form flexbox-grid-form-no-outside-padding">
@@ -28,7 +29,7 @@
         </div>
 
         <div class="address-header p-b5">
-            <div class="left">{{ trans('plugins/ecommerce::shipping.shipping_address') }}:</div>
+            <div class="left">Địa chỉ giao hàng:</div>
             <div class="right"><a href="#" class="hover-tooltip hover-underline color-blue btn-trigger-update-shipping-address">{{ trans('plugins/ecommerce::shipping.edit') }}</a></div>
         </div>
         <div style="clear:both;"></div>
@@ -51,7 +52,7 @@
                                 <input type="text" readonly="readonly" placeholder="{{ trans('plugins/ecommerce::shipping.select_shipping_method') }}" class="next-input input-dropdown input-show-shipping-method" value="{{ $order->shipping_method_name }}">
                             </div>
                         </div>
-                        <div class="dropdown-menu dropdown-carrier font-size-13px animate-scale-dropdown bg-white">
+                        {{-- <div class="dropdown-menu dropdown-carrier font-size-13px animate-scale-dropdown bg-white">
                             <div class="arrow-top-dropdown"></div>
                             <div>
                                 <table class="table table-fix-header2 table-shipping-select-options">
@@ -79,7 +80,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

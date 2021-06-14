@@ -49,4 +49,18 @@ class TagRepository extends RepositoriesAbstract implements TagInterface
 
         return $this->applyBeforeExecuteQuery($data)->get();
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getTagById($id)
+    {
+        $data = $this->model->with('slugable')->where([
+            'tags.id'     => $id,
+            'tags.status' => BaseStatusEnum::PUBLISHED,
+        ]);
+
+        return $this->applyBeforeExecuteQuery($data, true)->first();
+    }
+
 }

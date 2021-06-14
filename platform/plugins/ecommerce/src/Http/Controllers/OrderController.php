@@ -484,7 +484,9 @@ class OrderController extends BaseController
         Request $request,
         BaseHttpResponse $response
     ) {
+
         $order = $this->orderRepository->findOrFail($orderId);
+
 
         $weight = 0;
         if ($request->has('weight')) {
@@ -508,17 +510,19 @@ class OrderController extends BaseController
             'order_total' => $order->amount,
         ];
 
-        $shipping = $shippingFeeService->execute($shippingData);
+
+        // $shipping = $shippingFeeService->execute($shippingData);
 
         $storeLocators = $this->storeLocatorRepository->allBy(['is_shipping_location' => true]);
 
+
         if ($request->has('view')) {
             return view('plugins/ecommerce::orders.shipment-form',
-                compact('order', 'weight', 'shipping', 'storeLocators'));
+                compact('order', 'weight', 'storeLocators'));
         }
 
         return $response->setData(view('plugins/ecommerce::orders.shipment-form',
-            compact('order', 'weight', 'shipping', 'storeLocators'))->render());
+            compact('order', 'weight', 'storeLocators'))->render());
     }
 
     /**

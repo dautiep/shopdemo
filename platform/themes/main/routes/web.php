@@ -45,9 +45,11 @@ Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'web
              Route::get('{slug}/{slugProduct}', 'MainController@getProductDetail')->name('product.detail');
         });
 
+        //tin-tuc
         Route::prefix('tin-tuc')->group(function(){
             Route::get('/', 'MainController@getBlog')->name('get_reset');
             Route::get('tim-kiem', 'MainController@searchBlog')->name('blog.search');
+            Route::get('tag/{slug}', 'MainController@getBlogTag')->name('blog.tag');
             Route::get('{slug}', 'MainController@getBlogCategory')->name('blog.category');
             Route::get('{slug}/{slugPost}', 'MainController@getBlogDetail')->name('blog.detail');
         });

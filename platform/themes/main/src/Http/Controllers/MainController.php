@@ -8,6 +8,7 @@ use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Http\Responses\BaseHttpResponse;
 use Platform\Blog\Models\Category;
 use Platform\Blog\Models\Post;
+use Platform\Blog\Models\Tag;
 use Platform\Blog\Repositories\Interfaces\PostInterface;
 use Platform\Contact\Models\Contact;
 use Platform\Ecommerce\Models\Product;
@@ -152,6 +153,21 @@ class MainController extends PublicController
         return Theme::scope('pages.blog', $data)->render();
     }
 
+    public function getBlogTag($slug, SlugInterface $slugRepository)
+    {
+        $slug = $slugRepository->getFirstBy([
+            'key' => $slug,
+            'reference_type' => Tag::class,
+            'prefix' => SlugHelper::getPrefix(Tag::class),
+        ]);
+        if (!$slug) {
+            abort('404');
+        }
+        $data['tag'] = get_tag_by_id($slug->reference_id);
+        $data['posts'] = get_posts_by_tag($data['tag']->id);
+        return Theme::scope('pages.blog', $data)->render();
+    }
+
     /**
      * @return \Illuminate\Http\Response|Response
      */
@@ -181,7 +197,7 @@ class MainController extends PublicController
         }
         $slugPost = $slugRepository->getFirstBy(['key' => $slugPost, 'reference_type' => Post::class]);
         $data['contentPost'] = $postRepository->getFirstBy(['id' => $slugPost->reference_id]);
-        // dd(get_all_categories());
+        $data['tags'] = get_all_tags();
         return Theme::scope('pages.blog-post', $data)->render();
     }
 

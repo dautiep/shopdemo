@@ -155,12 +155,12 @@
                                             <table class="table-normal table-none-border table-color-gray-text">
                                                 <tbody>
                                                 <tr>
-                                                    <td class="text-right color-subtext">{{ trans('plugins/ecommerce::order.sub_amount') }}</td>
+                                                    <td class="text-right color-subtext">Tổng tiền</td>
                                                     <td class="text-right pl10">
                                                         <span>{{ format_price($order->sub_total) }}</span>
                                                     </td>
                                                 </tr>
-                                                <tr>
+                                                {{-- <tr>
                                                     <td class="text-right color-subtext mt10">
                                                         <p class="mb0">{{ trans('plugins/ecommerce::order.discount') }}</p>
                                                         @if ($order->coupon_code)
@@ -182,8 +182,8 @@
                                                     <td class="text-right p-none-t pl10">
                                                         <p class="mb0">{{ format_price($order->shipping_amount) }}</p>
                                                     </td>
-                                                </tr>
-                                                @if (EcommerceHelper::isTaxEnabled())
+                                                </tr> --}}
+                                                {{-- @if (EcommerceHelper::isTaxEnabled())
                                                     <tr>
                                                         <td class="text-right color-subtext mt10">
                                                             <p class="mb0">{{ trans('plugins/ecommerce::order.tax') }}</p>
@@ -209,12 +209,12 @@
                                                             <span>{{ format_price($order->amount) }}</span>
                                                         @endif
                                                     </td>
-                                                </tr>
-                                                <tr>
+                                                </tr> --}}
+                                                {{-- <tr>
                                                     <td class="border-bottom"></td>
                                                     <td class="border-bottom"></td>
-                                                </tr>
-                                                <tr>
+                                                </tr> --}}
+                                                {{-- <tr>
                                                     <td class="text-right color-subtext">{{ trans('plugins/ecommerce::order.paid_amount') }}</td>
                                                     <td class="text-right color-subtext pl10">
                                                         @if ($order->payment->id)
@@ -225,8 +225,8 @@
                                                             <span>{{ format_price($order->payment->status == \Platform\Payment\Enums\PaymentStatusEnum::COMPLETED ? $order->payment->amount : 0) }}</span>
                                                         @endif
                                                     </td>
-                                                </tr>
-                                                @if ($order->payment->status == \Platform\Payment\Enums\PaymentStatusEnum::REFUNDED)
+                                                </tr> --}}
+                                                {{-- @if ($order->payment->status == \Platform\Payment\Enums\PaymentStatusEnum::REFUNDED)
                                                     <tr class="hidden">
                                                         <td class="text-right color-subtext">{{ trans('plugins/ecommerce::order.refunded_amount') }}</td>
                                                         <td class="text-right pl10">
@@ -239,16 +239,16 @@
                                                     <td class="text-right pl10">
                                                         <span>{{ format_price($order->payment->status == \Platform\Payment\Enums\PaymentStatusEnum::COMPLETED ? $order->amount : 0) }}</span>
                                                     </td>
-                                                </tr>
+                                                </tr> --}}
                                                 </tbody>
                                             </table>
                                         </div>
                                         <br>
-                                        <div class="text-right">
+                                        {{-- <div class="text-right">
                                             <a href="{{ route('orders.generate-invoice', $order->id) }}" class="btn btn-info">
                                                 <i class="fa fa-download"></i> {{ trans('plugins/ecommerce::order.download_invoice') }}
                                             </a>
-                                        </div>
+                                        </div> --}}
                                         <div class="pd-all-20">
                                             <form action="{{ route('orders.edit', $order->id) }}">
                                                 <label class="text-title-field">{{ trans('plugins/ecommerce::order.note') }}</label>
@@ -370,6 +370,7 @@
                                 </div>
                             </div>
                             @if (!$order->shipment->id)
+
                                 <div class="shipment-create-wrap hidden"></div>
                             @else
                                 @include('plugins/ecommerce::orders.shipment-detail', ['shipment' => $order->shipment])

@@ -30,4 +30,13 @@ class TagCacheDecorator extends CacheAbstractDecorator implements TagInterface
     {
         return $this->getDataIfExistCache(__FUNCTION__, func_get_args());
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getTagById($id)
+    {
+        return $this->flushCacheAndUpdateData(__FUNCTION__, func_get_args());
+    }
+
 }

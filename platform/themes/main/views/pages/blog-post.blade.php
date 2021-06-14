@@ -30,146 +30,6 @@
                     </div>
 
                 </div>
-
-
-
-                <!-- comments heading -->
-                <div class="section-padding-top">
-                    <div class="line">
-                        <div class="fullwidth margin-bottom-10">
-                            <h3>Bình luận ( 5 )</h3>
-                            <hr class="break-small">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- comments list start -->
-                <div class="line">
-                    <div class="fullwidth comment-box">
-                        <div class="margin">
-                            <div class="s-12 m-2 l-2">
-                                <img src="img/user.jpg" class="user-photo" alt="">
-                            </div>
-                            <div class="s-12 m-10 l-10">
-                                <b class="text-primary">Waseem Ahmed</b>
-                                <span class="comment-time">Wed, Jan, 11 ,2017</span>
-                                <p class="heading">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius lacus justo,
-                                    sit amet congue lectus mattis sed. Vestibulum finibus diam nec nibh hendrerit
-                                    scelerisque. In mi massa, fermentum in fringilla condimentum, porta sed purus.
-                                </p>
-                                <a class="comment-reply text-primary-hover" href="#">Reply</a> &nbsp;&nbsp; <a
-                                    class="remove-item text-primary-hover" href="#">Remove</a> &nbsp;&nbsp; <a
-                                    class="edit-item text-primary-hover" href="#">Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="fullwidth comment-box">
-                        <div class="margin">
-                            <div class="s-12 m-2 l-2">
-                                <img src="img/user.jpg" class="user-photo" alt="">
-                            </div>
-                            <div class="s-12 m-10 l-10">
-                                <div class="fullwidth">
-                                    <b class="text-primary">Waseem Ahmed</b>
-                                    <span class="comment-time">Wed, Jan, 11 ,2017</span>
-                                    <p class="heading">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius lacus
-                                        justo, sit amet congue lectus mattis sed. Vestibulum finibus diam nec nibh
-                                        hendrerit scelerisque. In mi massa, fermentum in fringilla condimentum, porta
-                                        sed purus.
-                                    </p>
-                                    <a class="comment-reply text-primary-hover" href="#">Reply</a> &nbsp;&nbsp; <a
-                                        class="remove-item text-primary-hover" href="#">Remove</a> &nbsp;&nbsp; <a
-                                        class="edit-item text-primary-hover" href="#">Edit</a>
-                                </div>
-                                <div class="fullwidth comment-reply-box">
-                                    <div class="margin">
-                                        <div class="s-12 m-2 l-2">
-                                            <img src="img/user.jpg" class="user-photo" alt="">
-                                        </div>
-                                        <div class="s-12 m-10 l-10">
-                                            <b class="text-primary">Waseem Ahmed</b>
-                                            <span class="comment-time">Wed, Jan, 11 ,2017</span>
-                                            <p class="heading">
-                                                Lorem ipsum dolor sit amet adipiscing elit. Fusce varius lacus justo,
-                                                sit amet congue lectus mattis sed. Vestibulum finibus diam nec nibh
-                                                hendrerit scelerisque.
-                                            </p>
-                                            <a class="comment-reply text-primary-hover" href="#">Reply</a> &nbsp;&nbsp;
-                                            <a class="remove-item text-primary-hover" href="#">Remove</a> &nbsp;&nbsp;
-                                            <a class="edit-item text-primary-hover" href="#">Edit</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fullwidth comment-reply-box">
-                                    <div class="margin">
-                                        <div class="s-12 m-2 l-2">
-                                            <img src="img/user.jpg" class="user-photo" alt="">
-                                        </div>
-                                        <div class="s-12 m-10 l-10">
-                                            <b class="text-primary">Waseem Ahmed</b>
-                                            <span class="comment-time">Wed, Jan, 11 ,2017</span>
-                                            <p class="heading">
-                                                Lorem ipsum dolor sit amet elit. Fusce varius lacus justo, sit amet
-                                                congue lectus mattis sed.
-                                            </p>
-                                            <a class="comment-reply text-primary-hover" href="#">Reply</a> &nbsp;&nbsp;
-                                            <a class="remove-item text-primary-hover" href="#">Remove</a> &nbsp;&nbsp;
-                                            <a class="edit-item text-primary-hover" href="#">Edit</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="fullwidth border-bottom comment-box">
-                        <div class="margin">
-                            <div class="s-12 m-2 l-2">
-                                <img src="img/user.jpg" class="user-photo" alt="">
-                            </div>
-                            <div class="s-12 m-10 l-10">
-                                <b class="text-primary">Waseem Ahmed</b>
-                                <span class="comment-time">Wed, Jan, 11 ,2017</span>
-                                <p class="heading">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius lacus justo,
-                                    sit amet congue lectus mattis sed. Vestibulum finibus diam nec nibh hendrerit
-                                    scelerisque. In mi massa, fermentum in fringilla condimentum, porta sed purus.
-                                </p>
-                                <a class="comment-reply text-primary-hover" href="#">Reply</a> &nbsp;&nbsp; <a
-                                    class="remove-item text-primary-hover" href="#">Remove</a> &nbsp;&nbsp; <a
-                                    class="edit-item text-primary-hover" href="#">Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Post Comment -->
-                <div class="section-padding-top ">
-                    <div class="line">
-                        <h3>Post Comment</h3>
-                        <hr class="break-small">
-                        <div class="fullwidth">
-                            <form class="customform">
-                                <div class="margin">
-                                    <div class="s-12 m-6 l-6">
-                                        <input type="text" name="fullname" placeholder="Full name">
-                                    </div>
-                                    <div class="s-12 m-6 l-6">
-                                        <input type="text" name="email" placeholder="Email address">
-                                    </div>
-                                </div>
-                                <div class="fullwidth">
-                                    <textarea placeholder="Comment..." rows="3"></textarea>
-                                </div>
-                                <div class="s-12 m-6 l-12">
-                                    <input type="submit" value="Post Comment">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
             </div>
             <!-- left side end -->
 
@@ -220,14 +80,15 @@
                 <!-- tags -->
                 <div class="fullwidth margin-m-bottom-60" id="recent-tags">
 
-                    <h4 class="margin-bottom-30">Recent Tags</h4>
-
-                    <a href="" class="tag">Beauty</a>
-                    <a href="" class="tag">Beauty Care</a>
+                    <h4 class="margin-bottom-30">Từ khóa</h4>
+                    @foreach ($tags as $tag)
+                        <a href="{{ route('blog.tag', $tag->slug) }}" class="tag">{{ $tag->name }}</a>
+                    @endforeach
+                    {{-- <a href="" class="tag">Beauty Care</a>
                     <a href="" class="tag">Natural Beauty Care</a>
                     <a href="" class="tag">Lips</a>
                     <a href="" class="tag">Hair</a>
-                    <a href="" class="tag">Hair Care</a>
+                    <a href="" class="tag">Hair Care</a> --}}
 
                 </div>
 
