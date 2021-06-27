@@ -488,3 +488,15 @@ if (!function_exists('get_all_products')) {
         return app(ProductInterface::class)->getAllProducts($perPage, $active);
     }
 }
+
+if (!function_exists('get_related_products_with_current_product')) {
+    /**
+     * @param int $limit
+     * @param int $categoryId
+     * @return \Illuminate\Support\Collection
+     */
+    function get_related_products_with_current_product($limit, $categoryId)
+    {
+        return app(ProductInterface::class)->getRelatedProductsWithCurrentProduct($limit, $categoryId);
+    }
+}

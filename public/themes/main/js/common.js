@@ -110,14 +110,12 @@ function updateCart(cart_detail_id, product_cart_id)
     };
 
     if (parseInt(data['cart_detail_quantity']) > parseInt(data['product_quantity'])) {
-        console.log(1)
         Swal.fire({
             icon: 'warning',
             title: 'Chú ý...',
             text: 'Số lượng sản phẩm vượt quá số lượng cho phép!'
         });
     } else {
-        console.log(2)
         $.ajax({
             url: "/cart/update-cart",
             headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },

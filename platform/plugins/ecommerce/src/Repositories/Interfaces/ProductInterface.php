@@ -226,5 +226,11 @@ interface ProductInterface extends RepositoryInterface
      */
     public function getAllProducts($perPage = 12, $active = true, array $with = ['slugable']);
 
+    /**
+     * @param int $limit
+     * @param int $categoryId
+     * @return mixed
+     */
+    public function getRelatedProductsWithCurrentProduct(int $limit, int $categoryId);
 
 }

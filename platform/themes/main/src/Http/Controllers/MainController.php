@@ -125,6 +125,8 @@ class MainController extends PublicController
         $slugCategory = $slugRepository->getFirstBy(['key' => $slug, 'reference_type' => ProductCategory::class]);
         $slugProduct = $slugRepository->getFirstBy(['key' => $slugProduct, 'reference_type' => Product::class]);
         $data['product'] = $productRepository->getFirstBy(['id' => $slugProduct->reference_id]);
+        $categoryId = get_category_product_by_id(get_category_by_product_id($data['product']->id)->category_id)->id;
+        $data['relatedProduct'] = get_related_products_with_current_product(4, $categoryId);
         return Theme::scope('pages.product-detail', $data)->render();
     }
 

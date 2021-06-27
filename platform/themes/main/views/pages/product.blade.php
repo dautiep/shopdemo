@@ -63,7 +63,11 @@
                                 <a class="product-feature" href="{{ route('product.detail', ['slug' => get_category_product_by_id(get_category_by_product_id($product->id)->category_id)->slug, 'slugProduct' => $product->slug ]) }}" title="{{ $product->name }}">
                                     <h5 class="text--product">{{ $product->name }}</h5>
                                 </a>
-                                <p class="text--product"><span class="strike">{{ $product->price }} VNĐ</span> &nbsp;&nbsp; <span class="text-primary">$130.00</span></p>
+                                @if (!empty($product->sale_price))
+                                    <p class="text--product"><span class="strike">{{ number_format($product->sale_price) }} VNĐ</span> &nbsp;&nbsp; <span class="text-primary">{{ number_format($product->price) }} VNĐ</span></p>
+                                @else
+                                    <p class="text--product"><span class="text-primary">{{ number_format($product->price) }} VNĐ</span>
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -52,6 +52,47 @@
     </div>
 </div>
 <!-- PRODUCT DETAIL END  -->
+
+<!-- RELATED PRODUCTS START -->
+<div class="section padding-top-0">
+	<div class="line">
+		<div class="margin">
+			<div class="fullwidth margin-bottom-20">
+				<h2 class="text-center">Sản Phẩm Tương Tự</h2>
+				<hr class="break-small break-center">
+			</div>
+            @foreach ($relatedProduct as $product)
+                <!-- product 1 -->
+                <div class="s-12 m-4 l-3 margin-bottom-30">
+                    <div class="margin">
+                        <div class="fullwidth">
+                            <figure class="imghvr-reveal-down">
+                                <img src="{{ RvMedia::getImageUrl($product->image,'product-homepage', false, RvMedia::getDefaultImage()) }}" alt="{{ $product->name }}">
+                                <figcaption>
+                                    <div class="product-hover-content">
+                                        <div class="btn-box">
+                                            <a href="{{ route('product.detail', ['slug' => get_category_product_by_id(get_category_by_product_id($product->id)->category_id)->slug, 'slugProduct' => $product->slug ]) }}" class="btn">Mua Ngay</a>
+                                        </div>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="fullwidth">
+                            <h5>{{ $product->name }}</h5>
+                            @if (!empty($product->sale_price))
+                                <p class="text--product"><span class="strike">{{ number_format($product->sale_price) }} VNĐ</span> &nbsp;&nbsp; <span class="text-primary">{{ number_format($product->price) }} VNĐ</span></p>
+                            @else
+                                <p class="text--product"><span class="text-primary">{{ number_format($product->price) }} VNĐ</span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+		</div>
+	</div>
+</div>
+<!-- RELATED PRODUCTS END -->
+
 <script>
     function myFunction(imgs) {
         var expandImg = document.getElementById("expandedImg");

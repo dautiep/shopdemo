@@ -1001,4 +1001,19 @@ class ProductRepository extends RepositoriesAbstract implements ProductInterface
         return $this->applyBeforeExecuteQuery($data)->paginate($perPage);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function getRelatedProductsWithCurrentProduct($limit = 4, $categoryId)
+    {
+        $data = $this->model
+                    ->select('ec_products.*')
+                    ->join('ec_product_category_product', 'ec_product_category_product.product_id', '=', 'ec_products.id')
+                    ->join('ec_product_categories', 'ec_product_category_product.category_id', '=', 'ec_product_categories.id')
+                    ->where('ec_product_category_product.category_id', '<>', $categoryId)
+                    ->with('slugable')
+                    ->orderBy('ec_products.created_at', 'desc');
+        return $this->applyBeforeExecuteQuery($data)->limit($limit)->get();
+    }
+
 }
