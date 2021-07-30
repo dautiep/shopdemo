@@ -46,7 +46,7 @@
         </div>
         <h1 class="text-payment">Thanh Toán Thành Công</h1>
         <p class="text-content-payment">Cảm ơn bạn đã mua hàng của chúng tôi!</p>
-        <p>Thông tin hóa đơn</p>
+
       </div>
     </body>
 </html>

@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <input style="width:200px;" type="submit" value="Thanh Toán Sau" class="btn">
+            <input style="width:200px;" type="submit" value="Thanh Toán Sau Khi Nhận Hàng" class="btn">
             <a href="{{ route('paymet.Getonline', $order) }}" class="btn" style="width:200px;">Thanh Toán Qua VNPay</a>
         </form>
       </div>

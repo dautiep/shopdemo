@@ -156,7 +156,7 @@ class OrderTable extends TableAbstract
         $columns += [
             'type_payment'  => [
                 'name'  => 'ec_orders.type_payment',
-                'title' => 'Hình thức thanh toán',
+                'title' => 'Loại hình thanh toán',
                 'class' => 'text-center',
             ],
             'is_purchased'  => [
@@ -167,7 +167,7 @@ class OrderTable extends TableAbstract
 
             'status'          => [
                 'name'  => 'ec_orders.status',
-                'title' => 'Trạng thái đơn hàng',
+                'title' => 'Trạng thái giao hàng',
                 'width' => '200px',
                 'class' => 'text-center',
             ],
