@@ -123,10 +123,7 @@
             </div>
 
           </div>
-          {{-- <label>
-            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-          </label> --}}
-          <input type="submit" value="Xác nhận đơn hàng" class="btn">
+          <input style="width:200px;" type="submit" value="Xác nhận đơn hàng" class="btn">
         </form>
       </div>
     </div>

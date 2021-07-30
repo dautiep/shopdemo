@@ -4,6 +4,7 @@ namespace Theme\Main\Http\Controllers;
 
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Platform\Base\Enums\BaseStatusEnum;
 use Platform\Base\Http\Responses\BaseHttpResponse;
 use Platform\Blog\Models\Category;
@@ -19,6 +20,9 @@ use Platform\Slug\Repositories\Interfaces\SlugInterface;
 use Platform\Theme\Http\Controllers\PublicController;
 use Platform\Page\Models\Page;
 use SlugHelper;
+use SeoHelper;
+use MetaBox;
+use RvMedia;
 use Theme;
 use Theme\Main\Http\Requests\ContactRequest;
 
@@ -27,10 +31,26 @@ class MainController extends PublicController
     /**
      * {@inheritDoc}
      */
-    public function index(PageInterface $pageRepository, SlugInterface $slugRepository, Request $request )
+    public function index(PageInterface $pageRepository, SlugInterface $slugRepository)
     {
         $slug = $slugRepository->getFirstBy(['key' => 'trang-chu', 'reference_type' => Page::class]);
         $data['page'] = $pageRepository->getFirstBy(['id' => $slug->reference_id, 'status' => BaseStatusEnum::PUBLISHED]);
+
+        $meta = MetaBox::getMetaData($data['page'], 'seo_meta', true);
+        //start SEO
+        SeoHelper::setTitle(Str::upper($meta['seo_title'] ?: @$data['page']->name), theme_option('seo_title', ''), '|')
+            ->setDescription(theme_option('seo_description'))
+            ->openGraph()
+            ->setTitle(@theme_option('seo_title'))
+            ->setSiteName(@theme_option('site_title'))
+            ->setImage(RvMedia::getImageUrl(theme_option('seo_og_image'), 'og', false, RvMedia::getImageUrl(theme_option('seo_og_image'))))
+            ->addProperties(
+                [
+                    'image:width' => '1200',
+                    'image:height' => '630'
+                ]);
+        //end SEO
+
         $data[] = '';
         $data['productFeature'] = get_product_featured();
 
@@ -79,6 +99,21 @@ class MainController extends PublicController
     {
         $slug = $slugRepository->getFirstBy(['key' => 'trang-chu', 'reference_type' => Page::class]);
         $data['page'] = $pageRepository->getFirstBy(['id' => $slug->reference_id, 'status' => BaseStatusEnum::PUBLISHED]);
+        $meta = MetaBox::getMetaData($data['page'], 'seo_meta', true);
+        //start SEO
+        SeoHelper::setTitle(Str::upper('về chúng tôi'), theme_option('seo_title', ''), '|')
+            ->setDescription($meta['seo_description'] ?: @$data['page']->description ?: theme_option('site_description'))
+            ->openGraph()
+            ->setTitle(@theme_option('seo_title'))
+            ->setSiteName(@theme_option('site_title'))
+            ->setImage(RvMedia::getImageUrl(theme_option('seo_og_image'), 'og', false, RvMedia::getImageUrl(theme_option('seo_og_image'))))
+            ->addProperties(
+                [
+                    'image:width' => '1200',
+                    'image:height' => '630'
+                ]);
+        //end SEO
+
         return Theme::scope('pages.about-us', $data)->render();
     }
 
@@ -91,6 +126,20 @@ class MainController extends PublicController
     //Get Contact:
     public function getContact(BaseHttpResponse $response)
     {
+        //start SEO
+        SeoHelper::setTitle(Str::upper('Liên Hệ'), theme_option('seo_title', ''), '|')
+            ->setDescription(theme_option('seo_description'))
+            ->openGraph()
+            ->setTitle(@theme_option('seo_title'))
+            ->setSiteName(@theme_option('site_title'))
+            ->setImage(RvMedia::getImageUrl(theme_option('seo_og_image'), 'og', false, RvMedia::getImageUrl(theme_option('seo_og_image'))))
+            ->addProperties(
+                [
+                    'image:width' => '1200',
+                    'image:height' => '630'
+                ]);
+        //end SEO
+
         return Theme::scope('pages.contact-us')->render();
     }
 
@@ -111,6 +160,20 @@ class MainController extends PublicController
     //Get product:
     public function getProduct( Request $request)
     {
+        //start SEO
+        SeoHelper::setTitle(Str::upper('Sản Phẩm'), theme_option('seo_title', ''), '|')
+            ->setDescription(theme_option('seo_description'))
+            ->openGraph()
+            ->setTitle(@theme_option('seo_title'))
+            ->setSiteName(@theme_option('site_title'))
+            ->setImage(RvMedia::getImageUrl(theme_option('seo_og_image'), 'og', false, RvMedia::getImageUrl(theme_option('seo_og_image'))))
+            ->addProperties(
+                [
+                    'image:width' => '1200',
+                    'image:height' => '630'
+                ]);
+        //end SEO
+
         $data['products'] = get_all_products(true, 9);
         $data['categories'] = get_product_categories();
         return Theme::scope('pages.product',$data)->render();
@@ -121,6 +184,20 @@ class MainController extends PublicController
                                     SlugInterface $slugRepository,
                                     ProductInterface $productRepository)
     {
+        //start SEO
+        SeoHelper::setTitle(Str::upper('Chi tiết sản phẩm'), theme_option('seo_title', ''), '|')
+            ->setDescription(theme_option('seo_description'))
+            ->openGraph()
+            ->setTitle(@theme_option('seo_title'))
+            ->setSiteName(@theme_option('site_title'))
+            ->setImage(RvMedia::getImageUrl(theme_option('seo_og_image'), 'og', false, RvMedia::getImageUrl(theme_option('seo_og_image'))))
+            ->addProperties(
+                [
+                    'image:width' => '1200',
+                    'image:height' => '630'
+                ]);
+        //end SEO
+
         //get Slug category
         $slugCategory = $slugRepository->getFirstBy(['key' => $slug, 'reference_type' => ProductCategory::class]);
         $slugProduct = $slugRepository->getFirstBy(['key' => $slugProduct, 'reference_type' => Product::class]);
@@ -133,6 +210,19 @@ class MainController extends PublicController
     //Get Blog:
     public function getBlog()
     {
+        //start SEO
+        SeoHelper::setTitle(Str::upper('Tin tức'), theme_option('seo_title', ''), '|')
+            ->setDescription(theme_option('seo_description'))
+            ->openGraph()
+            ->setTitle(@theme_option('seo_title'))
+            ->setSiteName(@theme_option('site_title'))
+            ->setImage(RvMedia::getImageUrl(theme_option('seo_og_image'), 'og', false, RvMedia::getImageUrl(theme_option('seo_og_image'))))
+            ->addProperties(
+                [
+                    'image:width' => '1200',
+                    'image:height' => '630'
+                ]);
+        //end SEO
         $data['posts'] = get_all_posts(true, 2);
         return Theme::scope('pages.blog', $data)->render();
     }
@@ -151,6 +241,21 @@ class MainController extends PublicController
             abort('404');
         }
         $data['category'] = get_category_by_id($slug->reference_id);
+
+        //start SEO
+        SeoHelper::setTitle(Str::upper($data['category']->name), theme_option('seo_title', ''), '|')
+            ->setDescription(theme_option('seo_description'))
+            ->openGraph()
+            ->setTitle(@theme_option('seo_title'))
+            ->setSiteName(@theme_option('site_title'))
+            ->setImage(RvMedia::getImageUrl(theme_option('seo_og_image'), 'og', false, RvMedia::getImageUrl(theme_option('seo_og_image'))))
+            ->addProperties(
+                [
+                    'image:width' => '1200',
+                    'image:height' => '630'
+                ]);
+        //end SEO
+
         $data['posts'] = get_posts_by_category($data['category']->id, 4);
         return Theme::scope('pages.blog', $data)->render();
     }
@@ -166,6 +271,20 @@ class MainController extends PublicController
             abort('404');
         }
         $data['tag'] = get_tag_by_id($slug->reference_id);
+
+        //start SEO
+        SeoHelper::setTitle(Str::upper($data['tag']->name), theme_option('seo_title', ''), '|')
+            ->setDescription(theme_option('seo_description'))
+            ->openGraph()
+            ->setTitle(@theme_option('seo_title'))
+            ->setSiteName(@theme_option('site_title'))
+            ->setImage(RvMedia::getImageUrl(theme_option('seo_og_image'), 'og', false, RvMedia::getImageUrl(theme_option('seo_og_image'))))
+            ->addProperties(
+                [
+                    'image:width' => '1200',
+                    'image:height' => '630'
+                ]);
+        //end SEO
         $data['posts'] = get_posts_by_tag($data['tag']->id);
         return Theme::scope('pages.blog', $data)->render();
     }
@@ -184,6 +303,21 @@ class MainController extends PublicController
             abort('404');
         }
         $data['category'] = get_category_product_by_id($slug->reference_id);
+
+        //start SEO
+        SeoHelper::setTitle(Str::upper($data['category']->name), theme_option('seo_title', ''), '|')
+            ->setDescription(theme_option('seo_description'))
+            ->openGraph()
+            ->setTitle(@theme_option('seo_title'))
+            ->setSiteName(@theme_option('site_title'))
+            ->setImage(RvMedia::getImageUrl(theme_option('seo_og_image'), 'og', false, RvMedia::getImageUrl(theme_option('seo_og_image'))))
+            ->addProperties(
+                [
+                    'image:width' => '1200',
+                    'image:height' => '630'
+                ]);
+        //end SEO
+
         $data['products'] = get_products_by_category($data['category']->id, 9, 0);
         $data['categories'] = get_product_categories();
         return Theme::scope('pages.product',$data)->render();
@@ -194,6 +328,20 @@ class MainController extends PublicController
      */
     public function getBlogDetail($slug, $slugPost, PostInterface $postRepository, SlugInterface $slugRepository)
     {
+        //start SEO
+        SeoHelper::setTitle(Str::upper('Chi tiết bài viết'), theme_option('seo_title', ''), '|')
+            ->setDescription(theme_option('seo_description'))
+            ->openGraph()
+            ->setTitle(@theme_option('seo_title'))
+            ->setSiteName(@theme_option('site_title'))
+            ->setImage(RvMedia::getImageUrl(theme_option('seo_og_image'), 'og', false, RvMedia::getImageUrl(theme_option('seo_og_image'))))
+            ->addProperties(
+                [
+                    'image:width' => '1200',
+                    'image:height' => '630'
+                ]);
+        //end SEO
+
         if (!$slugPost) {
             abort('404');
         }
@@ -205,6 +353,20 @@ class MainController extends PublicController
 
     public function searchBlog(Request $request)
     {
+        //start SEO
+        SeoHelper::setTitle(Str::upper('Tìm kiếm bài viết'), theme_option('seo_title', ''), '|')
+            ->setDescription(theme_option('seo_description'))
+            ->openGraph()
+            ->setTitle(@theme_option('seo_title'))
+            ->setSiteName(@theme_option('site_title'))
+            ->setImage(RvMedia::getImageUrl(theme_option('seo_og_image'), 'og', false, RvMedia::getImageUrl(theme_option('seo_og_image'))))
+            ->addProperties(
+                [
+                    'image:width' => '1200',
+                    'image:height' => '630'
+                ]);
+        //end SEO
+
         $data['key'] = $request['q'];
         $starttime = microtime(true);
         $data['result'] = Post::search($data['key']);
@@ -215,6 +377,20 @@ class MainController extends PublicController
 
     public function searchProduct(Request $request)
     {
+        //start SEO
+        SeoHelper::setTitle(Str::upper('Tìm kiếm Sản Phẩm'), theme_option('seo_title', ''), '|')
+            ->setDescription(theme_option('seo_description'))
+            ->openGraph()
+            ->setTitle(@theme_option('seo_title'))
+            ->setSiteName(@theme_option('site_title'))
+            ->setImage(RvMedia::getImageUrl(theme_option('seo_og_image'), 'og', false, RvMedia::getImageUrl(theme_option('seo_og_image'))))
+            ->addProperties(
+                [
+                    'image:width' => '1200',
+                    'image:height' => '630'
+                ]);
+        //end SEO
+
         $data['key'] = $request['q'];
         $starttime = microtime(true);
         $data['result'] = Product::search($data['key']);

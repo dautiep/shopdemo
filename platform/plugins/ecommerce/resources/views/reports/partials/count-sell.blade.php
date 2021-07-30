@@ -2,7 +2,7 @@
     <div class="display">
         <div class="number">
             <h3 class="font-green-sharp">
-                <span data-counter="counterup" data-value="{{ format_price($count['revenue'], true) }}">0</span>
+                <span data-counter="counterup" data-value="{{ number_format(round($count['revenue'])) . ' VNĐ'}}">0</span>
             </h3>
             <small>{{ trans('plugins/ecommerce::reports.count.revenue') }}</small>
         </div>

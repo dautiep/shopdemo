@@ -8,7 +8,10 @@ use App\Providers\RouteServiceProvider;
 use Platform\ACL\Traits\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Theme;
+use SeoHelper;
+use RvMedia;
 
 class LoginGuestController extends Controller
 {
@@ -38,6 +41,20 @@ class LoginGuestController extends Controller
     }
 
     public function index() {
+        //start SEO
+        SeoHelper::setTitle(Str::upper('Đăng nhập'), theme_option('seo_title', ''), '|')
+            ->setDescription(theme_option('seo_description'))
+            ->openGraph()
+            ->setTitle(@theme_option('seo_title'))
+            ->setSiteName(@theme_option('site_title'))
+            ->setImage(RvMedia::getImageUrl(theme_option('seo_og_image'), 'og', false, RvMedia::getImageUrl(theme_option('seo_og_image'))))
+            ->addProperties(
+                [
+                    'image:width' => '1200',
+                    'image:height' => '630'
+                ]);
+        //end SEO
+
         return Theme::scope('auth.login')->render();
     }
 

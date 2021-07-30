@@ -16,6 +16,10 @@ Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'web
         //Auth
         Route::get('dang-ky', 'LoginController@getViewregister')->name('guest.register');
         Route::post('dang-ky', 'LoginController@register')->name('guest.post.register');
+        Route::get('quen-mat-khau', 'LoginController@forgetPassword')->name('guest.forget.password');
+        Route::post('quen-mat-khau', 'LoginController@postForgetPassword')->name('guest.post.forget.password');
+        Route::get('dat-lai-mat-khau/{id}', 'LoginController@resetPassword')->name('guest.reset.password');
+        Route::post('dat-lai-mat-khau/{id}', 'LoginController@postResetPassword')->name('guest.post.reset.password');
 
         //cart
         Route::prefix('cart')->group(function () {
@@ -26,6 +30,11 @@ Route::group(['namespace' => 'Theme\Main\Http\Controllers', 'middleware' => 'web
                 Route::post('remove-detail-cart', 'CartController@removeDetailCart')->name('cart.remove-detail');
                 Route::get('/checkout', 'CartController@payment')->name('cart.checkout');
                 Route::post('/confirm-checkout', 'CartController@createOrder')->name('cart.create.order');
+                Route::get('/select-type-payment/{order}', 'CartController@getViewSelectPayment')->name('cart.select.payment');
+                Route::post('/payment-ship', 'CartController@paymentShip')->name('cart.payment.ship');
+                Route::get('/pay-online-by-vnpay/{order}','CartController@GetPayonline')->name('paymet.Getonline');
+                Route::post('/pay-online-by-vnpay','CartController@payOnline')->name('paymet.online');
+                Route::get('/VNPay/return','CartController@VNPayreturn')->name('VNPay.return');
             });
         });
 

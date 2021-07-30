@@ -72,4 +72,9 @@ class OrderAddress extends BaseModel
     {
         return $this->belongsTo(Province::class, 'city', 'id');
     }
+
+    public static function getOrderAddress($orderId)
+    {
+        return OrderAddress::where('order_id', $orderId)->first();
+    }
 }

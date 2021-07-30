@@ -11,7 +11,6 @@
 
                     <!-- Expanded image -->
 
-
                     <!-- Image text -->
                     <div id="imgtext"></div>
 

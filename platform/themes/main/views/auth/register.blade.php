@@ -1,8 +1,5 @@
 <div class="container login_block "style=" display: block ;">
     <div class="card mt-3">
-        <div class="card-header header-login">
-          ĐĂNG KÝ TÀI KHOẢN
-        </div>
         <div class="card-body">
             @if ($message = Session::get('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">

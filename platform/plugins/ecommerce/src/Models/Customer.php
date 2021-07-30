@@ -127,4 +127,22 @@ class Customer extends Authenticatable
         return $this->hasOne(Cart::class, 'customer_id', 'id');
     }
 
+    public static function checkEmailExist($email)
+    {
+        return Customer::where('email', $email)->first();
+    }
+
+    public static function getCustomerById($customerId)
+    {
+        return Customer::where('id', $customerId)->first();
+    }
+
+    public static function updatePassword($input, $customerId)
+    {
+        $user = Customer::where('id', $customerId)->first();
+        $user->password = Hash::make($input['passwordCustomer']);
+        $user->save();
+        return $user;
+    }
+
 }

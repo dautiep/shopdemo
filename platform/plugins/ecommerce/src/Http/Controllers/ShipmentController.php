@@ -3,6 +3,7 @@
 namespace Platform\Ecommerce\Http\Controllers;
 
 use Assets;
+use Carbon\Carbon;
 use Platform\Base\Http\Controllers\BaseController;
 use Platform\Base\Http\Responses\BaseHttpResponse;
 use Platform\Ecommerce\Enums\OrderStatusEnum;
@@ -16,6 +17,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Platform\Ecommerce\Models\Order;
 
 class ShipmentController extends BaseController
 {
@@ -95,8 +97,13 @@ class ShipmentController extends BaseController
 
         switch ($request->input('status')) {
             case ShippingStatusEnum::DELIVERED:
-                $this->orderRepository->createOrUpdate(['status' => OrderStatusEnum::COMPLETED],
-                    ['id' => $shipment->order_id]);
+                $order = Order::where('id', $shipment->order_id)->first();
+                $order->status = OrderStatusEnum::COMPLETED;
+                $order->is_purchased = 'Đã thanh toán';
+                $order->purchased_at = Carbon::now()->addHours(7);
+                $order->save();
+                // $this->orderRepository->createOrUpdate(['status' => OrderStatusEnum::COMPLETED],
+                //     ['id' => $shipment->order_id]);
 
                 $this->orderHistoryRepository->createOrUpdate([
                     'action'      => 'update_status',

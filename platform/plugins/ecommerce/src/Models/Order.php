@@ -159,7 +159,14 @@ class Order extends BaseModel
         $order = new Order();
         $order->user_id = auth('customer')->user()->id;
         $order->sub_total = $input['amountOrder'];
+        $order->type_payment = $input['type_payment'];
+        $order->is_purchased = $input['is_purchased'];
         $order->save();
         return $order;
+    }
+
+    public static function getOrderById($orderId)
+    {
+        return Order::where('id', $orderId)->first();
     }
 }

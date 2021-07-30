@@ -1,8 +1,5 @@
 <div class="container login_block" style=" display: block ;">
     <div class="card mt-3">
-        <div class="card-header header-login">
-          ĐĂNG NHẬP
-        </div>
         <div class="card-body">
             <form class="form" action="{{ route('login.post') }}" method="POST">
                 {{ csrf_field() }}
@@ -25,16 +22,17 @@
                         </span>
                     @endif
                 </div>
-                <div class="form-group form-check">
-                {{-- <input type="checkbox" class="form-check-input" id="exampleCheck1"> --}}
-                {{-- <label class="form-check-label" for="exampleCheck1">Check me out</label> --}}
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
                         <button type="submit" class="btn login-btn">Đăng Nhập</button>
                     </div>
-                    <div class="col-md-6 text-right">
-                        <span>Bạn chưa có tài khoản? <a class="text-register" href="{{ route('guest.register') }}">Đăng ký ở đây</a></span>
+                </div>
+                <div class="col-md-6 text-right">
+                    <div class="form-group">
+                        <span>Bạn chưa có tài khoản? <a class="text-register" href="{{ route('guest.register') }}">Đăng ký ở đây</a></span> <br>
+                        <span><a class="text-register" href="{{ route('guest.forget.password') }}">Quên mật khẩu</a></span>
                     </div>
                 </div>
             </form>

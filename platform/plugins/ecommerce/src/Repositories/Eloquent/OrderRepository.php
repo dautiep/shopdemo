@@ -16,15 +16,19 @@ class OrderRepository extends RepositoriesAbstract implements OrderInterface
     {
         if (empty($select)) {
             $select = [
-                DB::raw('DATE(payments.created_at) AS date'),
-                DB::raw('SUM(COALESCE(payments.amount, 0) - COALESCE(payments.refunded_amount, 0)) as revenue'),
+                // DB::raw('DATE(payments.created_at) AS date'),
+                DB::raw('DATE(ec_orders.created_at) AS date'),
+                DB::raw('SUM(ec_orders.sub_total) as revenue'),
             ];
         }
         $data = $this->model
-            ->join('payments', 'payments.id', '=', 'ec_orders.payment_id')
-            ->whereDate('payments.created_at', '>=', $startDate)
-            ->whereDate('payments.created_at', '<=', $endDate)
-            ->where('payments.status', PaymentStatusEnum::COMPLETED)
+            ->whereDate('ec_orders.created_at', '>=', $startDate)
+            ->whereDate('ec_orders.created_at', '<=', $endDate)
+            ->where('ec_orders.is_finished', 1)
+            // ->join('payments', 'payments.id', '=', 'ec_orders.payment_id')
+            // ->whereDate('payments.created_at', '>=', $startDate)
+            // ->whereDate('payments.created_at', '<=', $endDate)
+            // ->where('payments.status', PaymentStatusEnum::COMPLETED)
             ->groupBy('date')
             ->select($select);
 
@@ -37,13 +41,16 @@ class OrderRepository extends RepositoriesAbstract implements OrderInterface
     public function countRevenueByDateRange($startDate, $endDate)
     {
         $data = $this->model
-            ->join('payments', 'payments.id', '=', 'ec_orders.payment_id')
-            ->where('payments.created_at', '>=', $startDate)
-            ->where('payments.created_at', '<=', $endDate)
-            ->where('payments.status', PaymentStatusEnum::COMPLETED);
+            // ->join('payments', 'payments.id', '=', 'ec_orders.payment_id')
+            // ->where('payments.created_at', '>=', $startDate)
+            // ->where('payments.created_at', '<=', $endDate)
+            // ->where('payments.status', PaymentStatusEnum::COMPLETED);
+            ->where('ec_orders.created_at', '>=', $startDate)
+            ->where('ec_orders.created_at', '<=', $endDate)
+            ->where('ec_orders.is_finished', 1);
 
         return $this
             ->applyBeforeExecuteQuery($data)
-            ->sum(DB::raw('COALESCE(payments.amount, 0) - COALESCE(payments.refunded_amount, 0)'));
+            ->sum(DB::raw('ec_orders.sub_total'));
     }
 }
